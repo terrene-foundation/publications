@@ -4,13 +4,23 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 
 ## Papers
 
-| Paper | Version | Description |
-|-------|---------|-------------|
-| [CARE: A Core Thesis](CARE-Core-Thesis.md) | v2.1 | Collaborative Autonomous Reflective Enterprise — governance philosophy for enterprise AI. Dual Plane Model, Mirror Thesis, Human-on-the-Loop, Constrained Organization. |
-| [EATP: A Core Thesis](EATP-Core-Thesis.md) | v2.2 | Enterprise Agent Trust Protocol — cryptographic trust lineage from organizational authority to individual AI agent actions. Five elements, five constraint dimensions, five trust postures. |
-| [CO: A Core Thesis](CO-Core-Thesis.md) | v1.1 | Cognitive Orchestration — domain-agnostic methodology for making institutional knowledge machine-readable. Seven principles, five-layer architecture, three failure modes. |
-| [COC: A Core Thesis](COC-Core-Thesis.md) | v1.1 | Cognitive Orchestration for Codegen — CO applied to software development. Reference implementation demonstrating the five-layer architecture. |
-| [The Constrained Organization](Constrained-Organization-Thesis.md) | v1.0 | An organizational model for enterprise AI governance integrating CARE + EATP + CO. Case study of the Terrene Foundation. |
+| Paper | Version | PDF | Source |
+|-------|---------|-----|--------|
+| CARE: A Core Thesis | v2.1 | [PDF](CARE-Core-Thesis.pdf) | [Markdown](CARE-Core-Thesis.md) |
+| EATP: A Core Thesis | v2.2 | [PDF](EATP-Core-Thesis.pdf) | [Markdown](EATP-Core-Thesis.md) |
+| CO: A Core Thesis | v1.1 | [PDF](CO-Core-Thesis.pdf) | [Markdown](CO-Core-Thesis.md) |
+| COC: A Core Thesis | v1.1 | [PDF](COC-Core-Thesis.pdf) | [Markdown](COC-Core-Thesis.md) |
+| The Constrained Organization | v1.0 | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
+
+**CARE** — Collaborative Autonomous Reflective Enterprise. Governance philosophy for enterprise AI. Dual Plane Model, Mirror Thesis, Human-on-the-Loop, Constrained Organization.
+
+**EATP** — Enterprise Agent Trust Protocol. Cryptographic trust lineage from organizational authority to individual AI agent actions. Five elements, five constraint dimensions, five trust postures.
+
+**CO** — Cognitive Orchestration. Domain-agnostic methodology for making institutional knowledge machine-readable. Seven principles, five-layer architecture, three failure modes.
+
+**COC** — CO applied to software development. Reference implementation demonstrating the five-layer architecture.
+
+**The Constrained Organization** — An organizational model for enterprise AI governance integrating CARE + EATP + CO. Case study of the Terrene Foundation.
 
 ## The Trinity
 
