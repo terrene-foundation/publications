@@ -399,11 +399,11 @@ Harre, M. (2025). From Firms to Computation: AI Governance and the Evolution of 
 
 Hassan, S. & De Filippi, P. (2021). Decentralized Autonomous Organization. _Internet Policy Review_, 10(2).
 
-Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP): A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://terrene.foundation/publications/eatp-core-thesis. Companion paper providing the technical trust verification protocol for the governance architecture described here.
+Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP): A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf. Companion paper providing the technical trust verification protocol for the governance architecture described here.
 
-Hong, J. (2026c). "Cognitive Orchestration (CO): A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://terrene.foundation/publications/co-core-thesis. Companion paper providing the institutional knowledge methodology.
+Hong, J. (2026c). "Cognitive Orchestration (CO): A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf. Companion paper providing the institutional knowledge methodology.
 
-Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://terrene.foundation/publications/constrained-organization-thesis. Companion paper on institutional design.
+Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf. Companion paper on institutional design.
 
 Hu, B. A. & Rong, H. (2026). Sovereign Agents: Towards Infrastructural Sovereignty and Diffused Accountability in Decentralized AI. _arXiv:2602.14951_.
 

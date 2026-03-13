@@ -475,11 +475,11 @@ Bainbridge, L. (1983). Ironies of Automation. _Automatica_, 19(6), 775-779.
 
 Haidt, J. (2001). The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment. _Psychological Review_, 108(4), 814-834.
 
-Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise -- A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://terrene.foundation/publications/care-core-thesis.
+Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise -- A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf.
 
-Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) -- A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://terrene.foundation/publications/eatp-core-thesis.
+Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) -- A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf.
 
-Hong, J. (2026d). "Cognitive Orchestration for Codegen (COC) -- A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://terrene.foundation/publications/coc-core-thesis.
+Hong, J. (2026d). "Cognitive Orchestration for Codegen (COC) -- A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf.
 
 Hong, J. (2026). "CO/COC vs Claude Code CLI: Deep Conformance Analysis." Terrene Foundation Internal Analysis, March 2026.
 

@@ -371,10 +371,10 @@ This is the development equivalent of "doing better things instead of doing thin
 ## References
 
 - Bainbridge, L. (1983). "Ironies of Automation." _Automatica_, 19(6), 775-779.
-- Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise — A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://terrene.foundation/publications/care-core-thesis.
-- Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) — A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://terrene.foundation/publications/eatp-core-thesis.
-- Hong, J. (2026c). "Cognitive Orchestration (CO) — A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://terrene.foundation/publications/co-core-thesis.
-- Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." Submitted to AIES 2026. https://terrene.foundation/publications/constrained-organization-thesis.
+- Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise — A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf.
+- Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) — A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf.
+- Hong, J. (2026c). "Cognitive Orchestration (CO) — A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf.
+- Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." Submitted to AIES 2026. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf.
 - Karpathy, A. (2025). "Vibe Coding." Personal blog post, February 2025.
 - Perry, N., Srivastava, M., Kumar, D., & Boneh, D. (2023). "Do Users Write More Insecure Code with AI Assistants?" _ACM CCS 2023_.
 - Polanyi, M. (1966). _The Tacit Dimension_. University of Chicago Press.

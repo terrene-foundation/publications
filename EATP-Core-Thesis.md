@@ -617,13 +617,13 @@ EATP's value as a standard does not depend on any single implementation.
 
 ### Companion Papers
 
-24. Hong, J. (2026a). "CARE: A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://terrene.foundation/publications/care-core-thesis. Companion paper providing the philosophical governance framework that EATP operationalizes.
+24. Hong, J. (2026a). "CARE: A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf. Companion paper providing the philosophical governance framework that EATP operationalizes.
 
-25. Hong, J. (2026c). "CO: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://terrene.foundation/publications/co-core-thesis. Companion paper defining the domain-agnostic methodology for structuring human-AI collaboration.
+25. Hong, J. (2026c). "CO: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf. Companion paper defining the domain-agnostic methodology for structuring human-AI collaboration.
 
-26. Hong, J. (2026d). "COC: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://terrene.foundation/publications/coc-core-thesis. Domain application of CO for software development.
+26. Hong, J. (2026d). "COC: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf. Domain application of CO for software development.
 
-27. Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://terrene.foundation/publications/constrained-organization-thesis. Companion paper on organizational design for AI governance stewardship.
+27. Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf. Companion paper on organizational design for AI governance stewardship.
 
 ---
 
