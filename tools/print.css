@@ -1,0 +1,240 @@
+/* Professional print styles for Terrene Foundation white papers.
+   Layered on top of style.css: adds a cover page, running footer with paper
+   title, page numbers in "Page X of Y" form, and tightened page-break rules
+   for headings, blockquotes, and tables. */
+
+@page {
+  size: A4;
+  margin: 28mm 24mm 28mm 24mm;
+  @bottom-left {
+    content: string(papertitle);
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 9pt;
+    color: #888;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 9pt;
+    color: #888;
+  }
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page :first {
+  margin: 0;
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* Cover page: a self-contained block at the top of the document.
+   The @page cover rule below defines a margin-free A4 page. The cover element
+   uses a CSS grid that anchors imprint at the top, title-block in the middle,
+   and footer at the bottom — without depending on vh units (which print
+   engines interpret inconsistently). */
+.cover {
+  page: cover;
+  page-break-after: always;
+  break-after: page;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 277mm;
+  padding: 26mm 28mm 22mm 28mm;
+  box-sizing: border-box;
+  background: #fafaf7;
+  color: #1a1a1a;
+}
+
+.cover .imprint {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+.cover .imprint strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.cover .title-block {
+  align-self: center;
+  padding: 8mm 0;
+}
+
+.cover .paper-tag {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 10pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2a5db0;
+  margin-bottom: 12pt;
+}
+
+.cover h1.cover-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 32pt;
+  line-height: 1.16;
+  font-weight: 600;
+  margin: 0 0 12pt 0;
+  border: none;
+  padding: 0;
+  color: #111;
+}
+
+.cover .cover-subtitle {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 15pt;
+  line-height: 1.32;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin: 0 0 14pt 0;
+  max-width: 145mm;
+}
+
+.cover .cover-tagline {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11.5pt;
+  line-height: 1.4;
+  color: #555;
+  margin: 0 0 6pt 0;
+  max-width: 140mm;
+}
+
+.cover .cover-tagline:last-of-type {
+  margin-bottom: 22pt;
+}
+
+.cover .cover-meta {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: #333;
+  border-top: 1px solid #c8c4b8;
+  padding-top: 14pt;
+  max-width: 120mm;
+}
+
+.cover .cover-meta .row {
+  display: flex;
+  gap: 14pt;
+  margin-bottom: 4pt;
+}
+
+.cover .cover-meta .label {
+  width: 26mm;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 8.5pt;
+}
+
+.cover .cover-meta .value {
+  color: #1a1a1a;
+}
+
+.cover .cover-footer {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 8.5pt;
+  letter-spacing: 0.12em;
+  color: #888;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #c8c4b8;
+  padding-top: 10pt;
+}
+
+@page cover {
+  margin: 0;
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+/* Running header string set from the title element so the footer carries the
+   paper title on every body page. */
+h1.running-title {
+  string-set: papertitle content();
+}
+
+/* Body refinements layered on top of style.css */
+body {
+  hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  string-set: papertitle attr(data-runtitle);
+}
+
+h1.body-h1 {
+  font-size: 22pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  color: #111;
+  page-break-before: always;
+  break-before: page;
+}
+
+h1.body-h1:first-of-type {
+  page-break-before: auto;
+  break-before: auto;
+}
+
+h2 {
+  color: #1a1a1a;
+  border-bottom: 1px solid #d9d4c5;
+  padding-bottom: 5pt;
+}
+
+h3 {
+  color: #2a2a2a;
+}
+
+blockquote {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+table {
+  font-size: 9.5pt;
+}
+
+th {
+  background-color: #f1ede4;
+  color: #1a1a1a;
+}
+
+th, td {
+  border: 1px solid #d9d4c5;
+}
+
+pre, code {
+  background-color: #f5f3ec;
+}
+
+pre {
+  border: 1px solid #d9d4c5;
+}
+
+a {
+  color: #2a5db0;
+}
+
+hr {
+  border-top: 1px solid #d9d4c5;
+}
+
+/* Footnote-style refinements: the trailing license/citation block usually sits
+   in a final hr-bounded section. Keep it clean. */
+section.footnotes {
+  font-size: 9.5pt;
+  color: #444;
+  border-top: 1px solid #d9d4c5;
+  margin-top: 28pt;
+  padding-top: 12pt;
+}
