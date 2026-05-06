@@ -1,0 +1,8 @@
+# Pre-finalisation drafts; finalised papers ship to the repo root.
+/workspaces/*
+
+# macOS Finder metadata
+.DS_Store
+
+# Obsidian editor config (per-author; not part of the published artefact)
+.obsidian/
