@@ -4,13 +4,14 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 
 ## Papers
 
-| Paper | Version | PDF | Source |
-|-------|---------|-----|--------|
-| CARE: A Core Thesis | v2.1 | [PDF](CARE-Core-Thesis.pdf) | [Markdown](CARE-Core-Thesis.md) |
-| EATP: A Core Thesis | v2.2 | [PDF](EATP-Core-Thesis.pdf) | [Markdown](EATP-Core-Thesis.md) |
-| CO: A Core Thesis | v1.1 | [PDF](CO-Core-Thesis.pdf) | [Markdown](CO-Core-Thesis.md) |
-| COC: A Core Thesis | v1.1 | [PDF](COC-Core-Thesis.pdf) | [Markdown](COC-Core-Thesis.md) |
-| The Constrained Organization | v1.0 | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
+| Paper                        | Version | PDF                                        | Source                                         |
+| ---------------------------- | ------- | ------------------------------------------ | ---------------------------------------------- |
+| CARE: A Core Thesis          | v2.1    | [PDF](CARE-Core-Thesis.pdf)                | [Markdown](CARE-Core-Thesis.md)                |
+| EATP: A Core Thesis          | v2.2    | [PDF](EATP-Core-Thesis.pdf)                | [Markdown](EATP-Core-Thesis.md)                |
+| CO: A Core Thesis            | v1.1    | [PDF](CO-Core-Thesis.pdf)                  | [Markdown](CO-Core-Thesis.md)                  |
+| COC: A Core Thesis           | v1.1    | [PDF](COC-Core-Thesis.pdf)                 | [Markdown](COC-Core-Thesis.md)                 |
+| The Constrained Organization | v1.0    | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
+| PACT: A Working Architecture | v0.1-WA | [PDF](PACT-Core-Thesis.pdf)                | [Markdown](PACT-Core-Thesis.md)                |
 
 **CARE** — Collaborative Autonomous Reflective Enterprise. Governance philosophy for enterprise AI. Dual Plane Model, Mirror Thesis, Human-on-the-Loop, Constrained Organization.
 
@@ -22,13 +23,16 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 
 **The Constrained Organization** — An organizational model for enterprise AI governance integrating CARE + EATP + CO. Case study of the Terrene Foundation.
 
-## The Trinity
+**PACT** — Principled Architecture for Constrained Trust. Organizational grammar for accountability at institutional scale. D/T/R addressing, operating envelope delegation, knowledge clearance, verification gradient. Working Architecture status (not yet a standard; promotion criteria defined in Section 15).
 
-The Foundation's standards form an integrated trinity:
+## The Trinity + Working Architecture
 
-- **CARE** (philosophy) — *what* governance means
-- **EATP** (protocol) — *how* trust is verified
-- **CO** (methodology) — *how* institutional knowledge is structured
+The Foundation's standards form an integrated trinity, with PACT providing organizational structure:
+
+- **CARE** (philosophy) — _what_ governance means
+- **EATP** (protocol) — _how_ trust is verified
+- **CO** (methodology) — _how_ institutional knowledge is structured
+- **PACT** (architecture) — _how_ organizations structure accountability (Working Architecture)
 
 ## Licensing
 
@@ -55,4 +59,4 @@ https://github.com/terrene-foundation/publications
 ## Contact
 
 - Website: [terrene.foundation](https://terrene.foundation)
-- Developer portal: [terrene.dev](https://terrene.dev)
+- GitHub: [github.com/terrene-foundation](https://github.com/terrene-foundation)
