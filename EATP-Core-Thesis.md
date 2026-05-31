@@ -6,7 +6,7 @@ _Why Trust Lineage Is the Missing Infrastructure for Enterprise AI_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.2 | March 2026
+**Version**: 2.2 | March 2026 (reference-implementation note revised May 2026)
 
 ---
 
@@ -16,7 +16,7 @@ The Enterprise Agent Trust Protocol (EATP) addresses a structural gap in enterpr
 
 Version 2.2 extends the protocol with optional structured reasoning traces --- machine-verifiable records of WHY a trust decision was made, complementing the existing WHO/WHAT/WHEN. Reasoning traces attach to Delegation Records and Audit Anchors with enterprise confidentiality classification (PUBLIC through TOP_SECRET), dual-binding cryptographic signing (reasoning trace hash bound into the parent record's signature, with independent reasoning signature for content verification), and a privacy model based on SD-JWT selective disclosure.
 
-The standalone reference SDK (Python, v0.1.0) implements the full protocol: four operations (ESTABLISH, DELEGATE, VERIFY, AUDIT), five constraint dimensions, structured reasoning traces with confidentiality classification, inter-agent messaging with replay protection, PostgreSQL-backed persistent storage, an MCP server for direct integration with AI agent frameworks, a CLI providing complete lifecycle management, and interoperability with six industry-standard credential formats (JWT, W3C Verifiable Credentials, DID, UCAN, SD-JWT, Biscuit).
+The reference implementation --- the `kailash.trust` namespace of **kailash-py** (v2.28.1, Apache 2.0) --- implements the full protocol: four operations (ESTABLISH, DELEGATE, VERIFY, AUDIT), five constraint dimensions, structured reasoning traces with confidentiality classification, inter-agent messaging with replay protection, pluggable persistent storage (in-memory, filesystem, PostgreSQL), an MCP server for direct integration with AI agent frameworks, a CLI for trust-lifecycle management, and interoperability with six industry-standard credential formats (JWT, W3C Verifiable Credentials, DID, UCAN, SD-JWT, Biscuit).
 
 The specification is published under CC BY 4.0. All reference implementations are released under the Apache 2.0 open-source license. EATP is a public good maintained by the Terrene Foundation.
 
@@ -309,19 +309,19 @@ Each specification is independently useful. An organization can adopt EATP witho
 
 ### Independent Adoptability
 
-EATP is designed for adoption without requiring any other component of the Terrene Foundation's architecture. The standalone SDK (`pip install eatp`) has zero dependencies on Kailash, CARE, or CO. An organization can integrate EATP trust verification into any existing system --- a FastAPI service, a Django application, an MCP server, an A2A agent network --- using only the EATP package.
+EATP is designed for adoption without requiring the rest of the Terrene Foundation's architecture. The reference implementation ships as the `kailash.trust` namespace of kailash-py (`pip install kailash`); using EATP requires only that namespace and carries no dependency on CARE, CO, or the broader Kailash orchestration layers (DataFlow, Nexus, Kaizen). An organization can integrate EATP trust verification into any existing system --- a FastAPI service, a Django application, an MCP server, an A2A agent network --- using only the trust namespace.
 
-This design is intentional. Trust infrastructure creates value through adoption breadth. Making adoption contingent on a larger framework would restrict that breadth. The standalone SDK exists to lower the barrier to adoption, not to create an on-ramp to a larger platform.
+This design is intentional. Trust infrastructure creates value through adoption breadth. Making adoption contingent on a larger framework would restrict that breadth. The trust namespace is usable on its own to lower the barrier to adoption, not to create an on-ramp to a larger platform.
 
 ### Open-Source Reference Implementation
 
-Kailash (the full platform: Core SDK, DataFlow, Nexus, Kaizen) is the most comprehensive EATP implementation, with orchestration, registry, and multi-agent coordination built on top of EATP's trust primitives. Kailash is fully open-source under the Apache 2.0 license, published by the Terrene Foundation. The standalone EATP SDK exists for independent adoptability --- organizations that want trust infrastructure without adopting a full workflow orchestration platform. Both are open, both are Apache 2.0, and neither creates lock-in.
+kailash-py is the open-source reference implementation, published under Apache 2.0 by the Terrene Foundation. EATP lives in its `kailash.trust` namespace; the broader platform (Core SDK, DataFlow, Nexus, Kaizen) layers orchestration, registry, and multi-agent coordination on top of those same trust primitives. Organizations that want only trust infrastructure depend on the trust namespace; those that want full orchestration adopt the broader platform. All of it is Apache 2.0, and none of it creates lock-in.
 
 ---
 
 ## Reference Implementation
 
-EATP v0.1.0 provides a standalone Python SDK (`pip install eatp`) that implements the complete protocol specification. The SDK comprises 49,864 lines of source code across 85 modules organized into 20 subsystems, with 28,556 lines of test code across 33 test files containing 1,575 automated tests --- including adversarial attack scenarios (1,752 lines testing transplant attacks, replay attacks, and chain manipulation) and property-based invariant validation (732 lines using Hypothesis). Eleven example programs (2,665 lines) demonstrate integration patterns.
+The reference implementation lives in the `kailash.trust` namespace of **kailash-py v2.28.1** (`pip install kailash`), the Foundation-owned Apache 2.0 Python SDK, and implements the complete protocol specification. The trust namespace spans 222 modules (~101,000 lines of source) with 209 test files; it houses both the EATP protocol layer and the PACT governance engine, which builds on the same trust primitives.
 
 ### Core Protocol Implementation
 
@@ -347,11 +347,13 @@ EATP v0.1.0 provides a standalone Python SDK (`pip install eatp`) that implement
 
 ### Storage and Audit
 
-**Storage backends**: In-memory (testing and development), filesystem (single-machine deployment), and PostgreSQL (production) --- all within the standalone EATP package. The storage interface is abstract; additional backends can be implemented against the `TrustStore` protocol.
+**Storage backends**: In-memory (testing and development), filesystem (single-machine deployment), and PostgreSQL (production) --- all within the `kailash.trust` namespace. The storage interface is abstract; additional backends can be implemented against the `TrustStore` protocol.
 
 **Append-only audit store**: PostgreSQL-backed audit storage with integrity verification, providing a persistent and tamper-evident record of all trust operations.
 
 **Merkle tree audit verification**: O(log n) proof generation for efficient verification of audit chain integrity, complementing the linear hash chain with a tree structure that enables selective verification without full chain traversal.
+
+**Canonical conformance vectors**: A published test-vector corpus (`audit-chain-canonical.json`, `trace-event-canonical.json`) pins the byte-level canonical form used for audit-anchor and reasoning-trace hashing --- including Unicode and JSON-canonicalization edge cases per RFC 8259 --- so that independent implementations can verify conformance against the reference rather than relying on prose alone.
 
 **Trust scoring**: Quantitative trust score computation based on delegation chain properties, constraint compliance history, and operational behavior patterns.
 
@@ -367,7 +369,7 @@ EATP v0.1.0 provides a standalone Python SDK (`pip install eatp`) that implement
 
 **Agent registry**: PostgreSQL-backed registry for agent metadata, capability declarations, and trust chain status --- enabling discovery of trusted agents within an organizational network.
 
-**CLI**: The `eatp` command provides complete lifecycle management: `init`, `establish`, `delegate`, `verify`, `revoke`, `status`, `audit`, `export`, `verify-chain`, and `version`.
+**CLI**: A trust-plane CLI (`attest`) provides lifecycle management --- establishing and delegating authority, verifying chains, approving or denying held actions, applying constraint templates, and exporting verification bundles.
 
 ### Governance Engine
 
@@ -549,7 +551,7 @@ Whether that thesis holds is an empirical question. The thesis fails if constrai
 
 ## Relationship to Kailash
 
-EATP defines the open standard. Kailash is the open-source reference implementation, published under Apache 2.0 by the Terrene Foundation.
+EATP defines the open standard. kailash-py (v2.28.1, the `kailash.trust` namespace) is the open-source reference implementation, published under Apache 2.0 by the Terrene Foundation.
 
 The stack is designed so that small teams with deep domain expertise can build enterprise-quality AI products - a consequence of the broader insight that the AI era fundamentally changes the economics of enterprise software creation. Pre-constructed building blocks, open standards, and AI-assisted development mean that what previously required enterprise budgets is now accessible to organizations of any size.
 
