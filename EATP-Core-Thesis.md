@@ -6,7 +6,7 @@ _Why Trust Lineage Is the Missing Infrastructure for Enterprise AI_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.2 | March 2026 (reference-implementation note revised May 2026)
+**Version**: 2.2 | March 2026 (implementation and conformance sections revised 2026)
 
 ---
 
@@ -31,6 +31,10 @@ The EATP specification is published under CC BY 4.0 (Creative Commons), meaning 
 Two patent applications are pending (PCT/SG2024/050503 and P251088SG; favorable IPRP received, national phase filings in progress in Singapore and the United States; no patent has been granted). The Apache 2.0 license includes an automatic patent grant (Section 3 of the Apache License) providing users a perpetual, royalty-free patent license for the contributed code, with defensive termination if the user initiates patent litigation. The specification is CC BY 4.0. Both licenses are irrevocable under their respective terms. The author is the founder of the Terrene Foundation, which publishes the specification and maintains the reference SDK. No external funding was received for this work.
 
 ---
+
+## Notational Conventions
+
+The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL** in this document are to be interpreted as described in RFC 2119 and RFC 8174 when, and only when, they appear in all capitals, as shown here. These keywords mark conformance requirements; the levels they apply to are defined in the Conformance section.
 
 ## The Accountability Gap
 
@@ -318,6 +322,18 @@ This design is intentional. Trust infrastructure creates value through adoption 
 kailash-py is the open-source reference implementation, published under Apache 2.0 by the Terrene Foundation. EATP lives in its `kailash.trust` namespace; the broader platform (Core SDK, DataFlow, Nexus, Kaizen) layers orchestration, registry, and multi-agent coordination on top of those same trust primitives. Organizations that want only trust infrastructure depend on the trust namespace; those that want full orchestration adopt the broader platform. All of it is Apache 2.0, and none of it creates lock-in.
 
 ---
+
+## Conformance
+
+EATP defines three normative conformance levels so implementations can declare their coverage and adopters can evaluate interoperability guarantees. Conformance is distinct from reference-implementation status: a reference implementation is Foundation-maintained and serves as the normative behavioral baseline, but reference status denotes stewardship, not a higher tier. The clause-level requirements are maintained in the working standard (`foundation/docs/02-standards/eatp/07-conformance.md`); the definitions below are the published, citable levels.
+
+**EATP Compatible** --- the lightweight floor. An implementation MUST provide Genesis Record creation and verification, Audit Anchor creation with hash-linked chaining (each anchor hashes the previous), a Constraint Envelope with at least one dimension, the ESTABLISH and AUDIT operations, VERIFY at QUICK level, SHA-256 hashing, Ed25519 (or an equivalently secure) signature scheme, and JSON / ISO 8601 serialization. Delegation Records, Capability Attestations, trust postures, the verification gradient beyond QUICK, reasoning traces, and export formats are NOT REQUIRED at this level.
+
+**EATP Conformant** --- the full protocol. An implementation MUST satisfy EATP Compatible, plus: all five elements (Genesis Record, Delegation Record, Constraint Envelope, Capability Attestation, Audit Anchor); monotonic constraint tightening on Delegation Records; all five constraint dimensions (Financial, Operational, Temporal, Data Access, Communication); all four operations (ESTABLISH, DELEGATE, VERIFY, AUDIT) with VERIFY at STANDARD and FULL; the four-category verification gradient (Auto-approved, Flagged, Held, Blocked); cascade revocation within a bounded propagation window; and reasoning-trace support with dual-binding signing and the `REASONING_REQUIRED` constraint type.
+
+**EATP Complete** --- the recommended production profile. An implementation MUST satisfy EATP Conformant, plus: all five trust postures with upgrade and instant downgrade; all three verification levels including reasoning-trace verification at FULL; all five reasoning-trace confidentiality levels (PUBLIC through TOP_SECRET) with no post-signing downgrade; both StrictEnforcer and ShadowEnforcer; and export to at least two interoperability formats plus VerificationBundle export. Merkle-tree audit verification, key rotation with automatic re-signing, multi-signature delegations, and circuit-breaker posture downgrade are RECOMMENDED at this level.
+
+An implementation MAY self-declare its conformance level, the specification version it targets, and the constraint dimensions, verification levels, and interoperability formats it supports. The Terrene Foundation MAY publish a conformance test suite that provides automated verification of conformance claims.
 
 ## Reference Implementation
 
