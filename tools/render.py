@@ -113,7 +113,7 @@ def short_title(title: str) -> str:
     """Pull a short running-title from a paper title.
 
     "CARE: A Core Thesis" -> "CARE"
-    "PACT: A Working Architecture" -> "PACT"
+    "PACT: A Core Thesis" -> "PACT"
     """
     return title.split(":", 1)[0].strip()
 

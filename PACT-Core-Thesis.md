@@ -1,4 +1,4 @@
-# PACT: A Working Architecture
+# PACT: A Core Thesis
 
 **Principled Architecture for Constrained Trust**
 
@@ -6,9 +6,9 @@ _Why Organizational Architecture Is the Missing Layer for Governed AI at Scale_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Status**: Working Architecture (not yet a Terrene Foundation standard; see Section 15 for promotion criteria)
+**Status**: Ratified Terrene Foundation standard (v1.0). Promoted from Working Architecture on 2026-06-21; see Section 16 for the promotion record.
 
-**Version**: 0.1-WA | March 2026
+**Version**: 1.0 | June 2026 (promoted from 0.1-WA, March 2026)
 
 **License**: CC BY 4.0
 
@@ -557,18 +557,18 @@ The D/T/R grammar is the structural expression of the Trust Plane (Property 1). 
 
 ---
 
-## 16. Working Architecture Status and Promotion Criteria
+## 16. Standard Status and Promotion Record
 
-PACT is published as a Working Architecture, not as a Terrene Foundation standard. The Terrene Foundation's existing standards (CARE, EATP, CO) form a coherent set; adding a fourth standard before the first three have received external validation would be premature.
+PACT was published in March 2026 as a Working Architecture (v0.1-WA) under a deliberate defer: the Foundation had just been incorporated, and standardizing from a single implementation before external validation is a known anti-pattern. On 2026-06-21 the Foundation promoted PACT to a ratified standard (v1.0), peer to CARE, EATP, and CO. The Foundation's ratified standards are now four: CARE (philosophy), EATP (protocol), CO (methodology), and PACT (organizational architecture). "The Trinity" is retained as the historical name for the original three.
 
-PACT becomes a candidate for promotion to standard status when all of the following are met:
+The promotion criteria defined at publication, and their disposition at promotion:
 
-1. **Multi-implementation validation**: At least two independent implementations (one open-source, one commercial) demonstrate that the specification is implementable without ambiguity.
-2. **Adopter feedback**: At least three organizations provide structured feedback on the D/T/R grammar, envelope composition, and knowledge clearance framework.
-3. **Foundation standards published**: CARE, EATP, and CO theses are published and have received external peer review.
-4. **Specification boundary map**: A formal document mapping the boundaries between PACT, CARE, EATP, and CO is published and reviewed, resolving any overlap or ambiguity.
+1. **Multi-implementation validation** (at least two implementations, one open-source, one commercial): _met_ — an open-source reference implementation (kailash-py / kailash-pact) and a separate production commercial deployment.
+2. **Adopter feedback** (structured feedback from operating deployments): _substantially met / in progress_ — the production deployment supplies sustained operational validation; broader multi-organization feedback continues to accumulate. Not treated as blocking.
+3. **Foundation standards published** (CARE, EATP, CO published): _met_ for publication; external academic peer review of the Trinity remains in progress and is not treated as blocking.
+4. **Specification boundary map** (PACT, CARE, EATP, CO boundaries): _met_ — the boundary is specified in Section 15 and across the published suite.
 
-Until promotion, the Terrene Foundation's standards are CARE (philosophy), EATP (protocol), and CO (methodology). PACT is a Working Architecture that provides organizational structure patterns for deploying those standards at scale.
+The promotion is a Foundation-authority determination that the accumulated evidence — a production commercial deployment, the open reference implementations, and multiple adversarial validation rounds — is sufficient. It does not assert that every criterion was independently and exhaustively cleared; criteria 2 and 3 remain in active progress and are not blocking. This section supersedes ADR-003 Decision 1; see terrene journal 0034 for the full decision record.
 
 ---
 
@@ -686,18 +686,19 @@ Williamson, O. E. (1985). _The Economic Institutions of Capitalism_. Free Press.
 
 ## Version History
 
-| Version | Date       | Changes                                                                                                                                                                                                                                                                                                                                             |
-| ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0.1     | 2026-03-21 | Initial working draft.                                                                                                                                                                                                                                                                                                                              |
-| 0.2     | 2026-03-21 | Added methodology, contribution statement, organizational theory grounding, comparison table, first person, removed uncited references, scaled MAS claims.                                                                                                                                                                                          |
-| 0.3     | 2026-03-21 | Added AI governance literature, levels-of-automation literature, additional org theory (March & Simon, Lawrence & Lorsch, Burns & Stalker, Perrow), Gregor & Hevner contribution typology, Broader Impact section, surveillance/dual-use limitation. Fixed cross-references, attribution, terminology.                                              |
-| 0.4     | 2026-03-21 | Restructured Section 2.1 into argument threads. Deepened Hagendorff engagement. Downgraded design theory to testable hypothesis. Sharpened Broader Impact. Added surveillance jurisdictional asymmetry. Fixed MAS reference. Added COC citation, AI assistance disclosure.                                                                          |
-| 0.5     | 2026-03-21 | Added bridge specification (Section 4.4). Fixed Robertson, MAS, references ordering, BOD, spec-level terminology.                                                                                                                                                                                                                                   |
-| 0.6     | 2026-03-21 | Aligned labels with EATP (PUBLIC/RESTRICTED). Added ABAC, NGAC, sociotechnical tradition, fixed Gregor & Hevner levels, Endsley, MAS citation, supervisor math. 43 refs.                                                                                                                                                                            |
-| 0.7     | 2026-03-21 | Added Section 2.3 (AI Agent Delegation): Kolt (2025), Humberd & Latham (2026), Jarrahi & Ritala (2025), Kolbjornsrud (2024), Vantrappen (2025), South et al. AD/MIT (ICML 2025), Tomasev et al. DeepMind (2026), IMDA agentic AI framework (2026). Positioned PACT against competitors. Removed incorrect SFA 04-N11 reference. 51 references.      |
-| 0.8     | 2026-03-21 | Cross-thesis coherence audit: EATP Conformant description now complete (reasoning traces included), classification level attribution corrected, Property 5 acknowledged as CO's domain. Section 10 (Architectural Inversion) added. Enterprise GRC positioning (SAP GRC, Microsoft Entra, Zero Trust). 55 references. Conditional accept (Round 7). |
-| 0.1-WA  | 2026-03-21 | Repackaged as Working Architecture. Added provenance disclosure, Foundation independence statement, PACT reference implementation stats (133 modules, 41K LOC, 4,191 tests). Added Section 16 (promotion criteria). Shadow Agent Planning (analysis spec Part 6) earmarked for CO methodology.                                                      |
+| Version | Date       | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0.1     | 2026-03-21 | Initial working draft.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 0.2     | 2026-03-21 | Added methodology, contribution statement, organizational theory grounding, comparison table, first person, removed uncited references, scaled MAS claims.                                                                                                                                                                                                                                                                                                              |
+| 0.3     | 2026-03-21 | Added AI governance literature, levels-of-automation literature, additional org theory (March & Simon, Lawrence & Lorsch, Burns & Stalker, Perrow), Gregor & Hevner contribution typology, Broader Impact section, surveillance/dual-use limitation. Fixed cross-references, attribution, terminology.                                                                                                                                                                  |
+| 0.4     | 2026-03-21 | Restructured Section 2.1 into argument threads. Deepened Hagendorff engagement. Downgraded design theory to testable hypothesis. Sharpened Broader Impact. Added surveillance jurisdictional asymmetry. Fixed MAS reference. Added COC citation, AI assistance disclosure.                                                                                                                                                                                              |
+| 0.5     | 2026-03-21 | Added bridge specification (Section 4.4). Fixed Robertson, MAS, references ordering, BOD, spec-level terminology.                                                                                                                                                                                                                                                                                                                                                       |
+| 0.6     | 2026-03-21 | Aligned labels with EATP (PUBLIC/RESTRICTED). Added ABAC, NGAC, sociotechnical tradition, fixed Gregor & Hevner levels, Endsley, MAS citation, supervisor math. 43 refs.                                                                                                                                                                                                                                                                                                |
+| 0.7     | 2026-03-21 | Added Section 2.3 (AI Agent Delegation): Kolt (2025), Humberd & Latham (2026), Jarrahi & Ritala (2025), Kolbjornsrud (2024), Vantrappen (2025), South et al. AD/MIT (ICML 2025), Tomasev et al. DeepMind (2026), IMDA agentic AI framework (2026). Positioned PACT against competitors. Removed incorrect SFA 04-N11 reference. 51 references.                                                                                                                          |
+| 0.8     | 2026-03-21 | Cross-thesis coherence audit: EATP Conformant description now complete (reasoning traces included), classification level attribution corrected, Property 5 acknowledged as CO's domain. Section 10 (Architectural Inversion) added. Enterprise GRC positioning (SAP GRC, Microsoft Entra, Zero Trust). 55 references. Conditional accept (Round 7).                                                                                                                     |
+| 0.1-WA  | 2026-03-21 | Repackaged as Working Architecture. Added provenance disclosure, Foundation independence statement, PACT reference implementation stats (133 modules, 41K LOC, 4,191 tests). Added Section 16 (promotion criteria). Shadow Agent Planning (analysis spec Part 6) earmarked for CO methodology.                                                                                                                                                                          |
+| 1.0     | 2026-06-21 | Promoted from Working Architecture to a ratified Terrene Foundation standard, peer to CARE/EATP/CO, by founder determination that accumulated maturity evidence (production commercial deployment + open reference implementations + adversarial validation) is sufficient. Title "A Working Architecture" → "A Core Thesis"; citation key Hong (2026f) retained. Section 16 reframed as the promotion record. Supersedes ADR-003 Decision 1; see terrene journal 0034. |
 
 ---
 
-_This paper is Hong (2026f), a Working Architecture derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." PACT implements the recursive application of the formal model across organizational hierarchies (see Remark on Recursive Application). See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design._
+_This paper is Hong (2026f), a Core Thesis derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." PACT implements the recursive application of the formal model across organizational hierarchies (see Remark on Recursive Application). See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design._
