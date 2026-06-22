@@ -55,15 +55,15 @@ https://github.com/terrene-foundation/publications
 
 Because every thesis shares the same author and year, a per-thesis alphabetical suffix disambiguates short-form citations. These keys are **canonical and stable** — once assigned, a suffix never changes (it is an identifier, not a sort order). Any Foundation specification citing a thesis MUST use the suffix below.
 
-| Key           | Thesis                                                  | Source                                            |
-| ------------- | ------------------------------------------------------- | ------------------------------------------------- |
-| `Hong, 2026`  | Constraint Theater: Governance Without Wealth Effects   | _foundational paper_                              |
-| `Hong, 2026a` | CARE: A Core Thesis                                      | [CARE-Core-Thesis.md](CARE-Core-Thesis.md)        |
-| `Hong, 2026b` | EATP: A Core Thesis                                      | [EATP-Core-Thesis.md](EATP-Core-Thesis.md)        |
-| `Hong, 2026c` | CO: A Core Thesis                                        | [CO-Core-Thesis.md](CO-Core-Thesis.md)            |
-| `Hong, 2026d` | COC: A Core Thesis                                       | [COC-Core-Thesis.md](COC-Core-Thesis.md)          |
-| `Hong, 2026e` | The Constrained Organization                            | [Constrained-Organization-Thesis.md](Constrained-Organization-Thesis.md) |
-| `Hong, 2026f` | PACT: A Working Architecture                            | [PACT-Core-Thesis.md](PACT-Core-Thesis.md)        |
+| Key           | Thesis                                                | Source                                                                   |
+| ------------- | ----------------------------------------------------- | ------------------------------------------------------------------------ |
+| `Hong, 2026`  | Constraint Theater: Governance Without Wealth Effects | _foundational paper_                                                     |
+| `Hong, 2026a` | CARE: A Core Thesis                                   | [CARE-Core-Thesis.md](CARE-Core-Thesis.md)                               |
+| `Hong, 2026b` | EATP: A Core Thesis                                   | [EATP-Core-Thesis.md](EATP-Core-Thesis.md)                               |
+| `Hong, 2026c` | CO: A Core Thesis                                     | [CO-Core-Thesis.md](CO-Core-Thesis.md)                                   |
+| `Hong, 2026d` | COC: A Core Thesis                                    | [COC-Core-Thesis.md](COC-Core-Thesis.md)                                 |
+| `Hong, 2026e` | The Constrained Organization                          | [Constrained-Organization-Thesis.md](Constrained-Organization-Thesis.md) |
+| `Hong, 2026f` | PACT: A Core Thesis                                   | [PACT-Core-Thesis.md](PACT-Core-Thesis.md)                               |
 
 New theses take the next free letter (`g`, `h`, …), allocated at publication. The normative authority for this table — including the order rule, stability guarantee, and allocation policy — is [`CITATION-AUTHORITY.md`](https://github.com/terrene-foundation/foundation/blob/main/docs/02-standards/publications/CITATION-AUTHORITY.md) in the foundation repository.
 
