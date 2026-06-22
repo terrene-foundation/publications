@@ -11,7 +11,7 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 | CO: A Core Thesis            | v1.1    | [PDF](CO-Core-Thesis.pdf)                  | [Markdown](CO-Core-Thesis.md)                  |
 | COC: A Core Thesis           | v1.1    | [PDF](COC-Core-Thesis.pdf)                 | [Markdown](COC-Core-Thesis.md)                 |
 | The Constrained Organization | v1.0    | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
-| PACT: A Working Architecture | v0.1-WA | [PDF](PACT-Core-Thesis.pdf)                | [Markdown](PACT-Core-Thesis.md)                |
+| PACT: A Core Thesis          | v1.0    | [PDF](PACT-Core-Thesis.pdf)                | [Markdown](PACT-Core-Thesis.md)                |
 
 **CARE** — Collaborative Autonomous Reflective Enterprise. Governance philosophy for enterprise AI. Dual Plane Model, Mirror Thesis, Human-on-the-Loop, Constrained Organization.
 
@@ -23,16 +23,16 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 
 **The Constrained Organization** — An organizational model for enterprise AI governance integrating CARE + EATP + CO. Case study of the Terrene Foundation.
 
-**PACT** — Principled Architecture for Constrained Trust. Organizational grammar for accountability at institutional scale. D/T/R addressing, operating envelope delegation, knowledge clearance, verification gradient. Working Architecture status (not yet a standard; promotion criteria defined in Section 15).
+**PACT** — Principled Architecture for Constrained Trust. Organizational grammar for accountability at institutional scale. D/T/R addressing, operating envelope delegation, knowledge clearance, verification gradient. Ratified Terrene Foundation standard (v1.0, promoted 2026-06-21; promotion record in Section 16).
 
-## The Trinity + Working Architecture
+## The Four Ratified Standards
 
-The Foundation's standards form an integrated trinity, with PACT providing organizational structure:
+The Foundation's four ratified standards form an integrated set, with PACT providing organizational structure:
 
 - **CARE** (philosophy) — _what_ governance means
 - **EATP** (protocol) — _how_ trust is verified
 - **CO** (methodology) — _how_ institutional knowledge is structured
-- **PACT** (architecture) — _how_ organizations structure accountability (Working Architecture)
+- **PACT** (architecture) — _how_ organizations structure accountability (ratified standard, v1.0)
 
 ## Licensing
 
