@@ -8,7 +8,7 @@ _Doing Better Things, Not Just Doing Things Better_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.1 | March 2026
+**Version**: 2.2 | August 2026
 
 **License**: CC BY 4.0
 
@@ -78,14 +78,14 @@ Rahwan (2018) extended human-in-the-loop to society-in-the-loop, proposing democ
 
 ### Comparison with Existing Frameworks
 
-| Dimension       | EU AI Act                | NIST AI RMF         | OECD Principles     | Shneiderman HCAI   | **CARE**                            |
-| --------------- | ------------------------ | ------------------- | ------------------- | ------------------ | ----------------------------------- |
-| Scope           | Regulatory compliance    | Risk management     | Ethical principles  | Design philosophy  | Organizational architecture         |
-| Human role      | Oversight provider       | Risk assessor       | Values setter       | Co-equal partner   | Trust Plane architect               |
-| Trust model     | Regulatory certification | Risk categorization | Principled trust    | Bilateral          | Cryptographically verifiable        |
-| Enforcement     | Legal (fines)            | Voluntary           | Voluntary           | None               | Deterministic (guardrails)          |
-| Knowledge model | Static documentation     | Framework documents | Principle documents | Academic framework | Compounding institutional knowledge |
-| Falsifiable?    | N/A                      | No                  | No                  | No                 | Yes (5 criteria stated)             |
+| Dimension       | EU AI Act                | NIST AI RMF         | OECD Principles     | Shneiderman HCAI   | **CARE**                                       |
+| --------------- | ------------------------ | ------------------- | ------------------- | ------------------ | ---------------------------------------------- |
+| Scope           | Regulatory compliance    | Risk management     | Ethical principles  | Design philosophy  | Organizational architecture                    |
+| Human role      | Oversight provider       | Risk assessor       | Values setter       | Co-equal partner   | Trust Plane architect                          |
+| Trust model     | Regulatory certification | Risk categorization | Principled trust    | Bilateral          | Cryptographically verifiable                   |
+| Enforcement     | Legal (fines)            | Voluntary           | Voluntary           | None               | Graduated (advisory → infrastructure-enforced) |
+| Knowledge model | Static documentation     | Framework documents | Principle documents | Academic framework | Compounding institutional knowledge            |
+| Falsifiable?    | N/A                      | No                  | No                  | No                 | Yes (5 criteria stated)                        |
 
 ---
 
@@ -101,9 +101,15 @@ The **Execution Plane** contains task completion, information processing, and co
 
 This separation is a normative choice, not an ontological discovery. Some organizational theorists argue that trust and execution are fundamentally entangled, and they may be right at the deepest level. I accept this critique and contend the separation is useful for governance design. By treating trust and execution as if they were separable, we can build systems that preserve human authority over boundaries while enabling machine-speed execution. The separation may be imperfect in practice, but it operationalizes a working approximation that current alternatives do not provide.
 
-This separation pattern has prior art: software-defined networking separates control planes from data planes; Kubernetes separates orchestration from execution; aviation separates flight planning from autopilot operation (Bainbridge, 1983). Industry analysts have converged on "control plane" language for agentic AI governance (Forrester, O'Reilly, 2025-2026). What is new is applying the pattern to organizational governance as a formal architectural model with a companion trust verification protocol.
+This separation pattern has prior art: software-defined networking separates control planes from data planes; Kubernetes separates orchestration from execution; aviation separates flight planning from autopilot operation (Bainbridge, 1983). Industry analysts have converged on "control plane" language for agentic AI governance (Forrester, O'Reilly, 2025-2026). What is new is applying the pattern to organizational governance as a formal architectural model with a companion trust verification protocol. The formal justification is given in Hong (2026), which proves that separated governance strictly dominates combined governance above a threshold level of autonomous delegation (Proposition 2). The value of separation decomposes into an information component (cleaner signal of judgment quality) and a decontamination component (removing the incentive contamination that arises when the evaluator's career is linked to the unit being evaluated). Combined governance is not merely suboptimal; above a critical autonomy threshold, it can become structurally unstable (Proposition 5).
 
-Traditional systems conflate these planes, forcing humans to approve every execution step as a proxy for trust. CARE separates them: humans invest judgment at setup time, enabling AI to execute at machine speed while accountability is preserved through a verifiable trust chain.
+Traditional systems conflate these planes, forcing humans to approve every execution step as a proxy for trust. CARE separates them: humans invest judgment at setup time, enabling AI to execute at machine speed while accountability is preserved through a verifiable trust chain. Hong (2026) identifies the mechanism: when delegation shifts from human subordinates (who bear wealth effects) to autonomous systems (which do not), the governance problem transforms from monitoring effort to screening the quality of the human's judgment in defining boundaries. The Dual Plane Model is the architectural response to this transformation.
+
+**Mirror event taxonomy**: The CARE specification defines three categories of trust events: ExecutionRecords (AI acted autonomously within its constraint envelope), EscalationRecords (AI reached a boundary and requires human judgment), and InterventionRecords (a human proactively engaged). This taxonomy structures the observation feed so that humans reviewing execution patterns can distinguish autonomous action from boundary events from their own interventions---a prerequisite for informed constraint refinement.
+
+**Constraint diagnostics**: Implementations should provide diagnostic information---constraint utilization, boundary pressure, resolution patterns---to support human constraint refinement decisions. These diagnostics are decision-support tools, not optimization targets. When utilization scores become targets rather than inputs to judgment, the Goodhart Trap (Principle 8) undermines the purpose of the diagnostics.
+
+**Three-tier enforcement model**: Constraint enforcement operates at three tiers of increasing assurance. Tier 1 (contextual guidance) injects constraints into AI context---useful but not deterministic, since the AI may deviate. Tier 2 (pre-execution validation) interposes programmatic checks before actions execute, providing process-level enforcement independent of AI compliance. Tier 3 (transport-level interposition) ensures the AI cannot reach external tools or services without passing through constraint evaluation infrastructure. Higher tiers provide stronger assurance but are not inherently superior---the appropriate tier depends on the deployment's risk profile and the consequences of constraint violation.
 
 ### Human-on-the-Loop
 
@@ -120,7 +126,9 @@ The pilot analogy captures this precisely. A pilot does not hand-fly every inch 
 
 Parasuraman and Riley (1997) documented what happens when this relationship breaks down: automation misuse, disuse, and abuse. Humans over-trust the automation and miss failures (misuse), under-trust it and create unnecessary bottlenecks (disuse), or designers implement it with little regard for the human operator's workload and authority (abuse). CARE's phased adoption model (observation before limited autonomy, limited autonomy before expanded) is designed to build the calibrated trust that avoids these failure modes.
 
-**A critical caveat**: Defining effective constraints for complex AI behavior is difficult. Research on specification gaming and emergent behaviors suggests constraint definition may fail in ways humans cannot anticipate. Human-on-the-loop is aspirational architecture, not guaranteed control.
+**A critical caveat**: Defining effective constraints for complex AI behavior is difficult. Research on specification gaming and emergent behaviors suggests constraint definition may fail in ways humans cannot anticipate. Human-on-the-loop is aspirational architecture, not guaranteed control. Hong (2026) identifies a specific failure mode: **constraint theater**, where organizations produce elaborate governance documentation at the expense of the substantive judgment that makes governance effective. When governance signaling and strategic judgment compete for cognitive bandwidth, the optimal weight on governance documentation in managerial evaluation is negative (Proposition 1). This result motivates the architectural choices throughout CARE: the emphasis on judgment quality over documentation volume, and on independent evaluation over self-assessment.
+
+**Multi-stakeholder oversight**: In practice, "the human" in human-on-the-loop is often multiple humans with dimension-scoped responsibility. A CFO defines financial constraints. A CISO defines data access boundaries. A department head defines operational limits. The CARE specification permits delegation of oversight authority to multiple humans, provided every approval action traces to a single identifiable human authority. The observation-refinement loop operates the same way---each human observes and refines the constraint dimensions within their expertise---but is distributed across the humans whose judgment each dimension requires.
 
 ---
 
@@ -313,7 +321,7 @@ The Mirror Thesis has a dual nature. Used well, it identifies uniquely human con
 
 ### Access and Equity
 
-The constrained organization requires significant initial investment in institutional knowledge engineering. Organizations with weak institutional knowledge have the most to gain and the least capacity to build. This creates an access gap that could widen inequality between well-resourced and under-resourced organizations.
+The constrained organization requires significant initial investment in institutional knowledge engineering. Organizations with weak institutional knowledge have the most to gain and the least capacity to build. This creates an access gap that could widen inequality between well-resourced and under-resourced organizations. Domain-specific constraint templates---for governance, software development, research, financial operations---and sharable template ecosystems can reduce the initial constraint design burden, partially addressing this accessibility concern.
 
 ### Geographic Considerations
 
@@ -345,7 +353,7 @@ CARE stands for Collaborative Autonomous Reflective Enterprise. Each word is cho
 3. **Transparency as Foundation**: Every AI action is fully visible---not because humans watch everything, but because the ability to look makes the choice not to look an informed one
 4. **Continuous Operation**: AI maintains consistent quality; humans bring judgment when needed, not when the clock demands it
 5. **Human Accountability Preserved**: Every consequential action traces to human authority through the trust chain
-6. **Graceful Degradation**: When AI reaches competence boundaries, it degrades safely---reduced autonomy, increased transparency, escalation---preserving human agency
+6. **Graceful Degradation**: When AI reaches competence boundaries, it degrades safely---reduced autonomy, increased transparency, escalation---preserving human agency. Graceful degradation also applies to human unavailability: when a held action cannot be resolved because no authorized reviewer is available, implementations should reduce autonomy rather than block indefinitely. Auto-approval after timeout is a policy choice requiring explicit organizational authorization.
 7. **Evolutionary Trust**: Trust boundaries evolve based on demonstrated performance, not assumption
 8. **Purpose Alignment**: AI executes within human-defined organizational purposes, not its own optimization targets
 
@@ -399,11 +407,17 @@ Harre, M. (2025). From Firms to Computation: AI Governance and the Evolution of 
 
 Hassan, S. & De Filippi, P. (2021). Decentralized Autonomous Organization. _Internet Policy Review_, 10(2).
 
+Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." Submitted to _American Economic Review_. Theoretical foundation for this paper series. Proves the Dual Plane Model is optimal (Proposition 2) and derives constraint theater (Proposition 1).
+
 Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP): A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf. Companion paper providing the technical trust verification protocol for the governance architecture described here.
 
 Hong, J. (2026c). "Cognitive Orchestration (CO): A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf. Companion paper providing the institutional knowledge methodology.
 
+Hong, J. (2026d). "Cognitive Orchestration for Codegen (COC): A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf. Reference implementation of CO.
+
 Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf. Companion paper on institutional design.
+
+Hong, J. (2026f). "PACT: Principled Architecture for Constrained Trust -- A Core Thesis." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/PACT-Core-Thesis.pdf. Companion paper on organizational architecture for accountable AI delegation.
 
 Hu, B. A. & Rong, H. (2026). Sovereign Agents: Towards Infrastructural Sovereignty and Diffused Accountability in Decentralized AI. _arXiv:2602.14951_.
 
@@ -480,4 +494,15 @@ The tools used were Claude Code (Anthropic) with specialized subagents for resea
 
 ---
 
-_See also: Hong, J. (2026b). "EATP: A Core Thesis" for the trust verification protocol that operationalizes CARE. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design._
+## Version History
+
+| Version | Date          | Changes                                                                                                                                         |
+| ------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | February 2026 | Initial thesis: Dual Plane Model, Mirror Thesis, Human-on-the-Loop, six competency categories                                                   |
+| 2.0     | March 2026    | Organizational economics grounding (Fama & Jensen, Hart & Moore, Holmstrom). Constrained Organization introduced. Eight CARE principles defined |
+| 2.1     | March 2026    | Separated CARE (philosophy) from Constrained Organization (integration). Scope boundaries enforced. Agency theory foundation strengthened       |
+| 2.2     | August 2026   | Publication reconciliation (terrene#73): restored the no-independent-validation / no-peer-review disclosure and the analyst attribution for "control plane", both dropped from the custodial copy while the published copy retained them |
+
+---
+
+_This paper is Hong (2026a), derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." The Dual Plane Model is proven optimal by Proposition 2; constraint theater (Proposition 1) motivates the separation of trust from execution. See also: Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design. Hong, J. (2026f). "PACT: A Core Thesis" for organizational architecture._

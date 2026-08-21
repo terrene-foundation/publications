@@ -4,7 +4,7 @@ _Why Enterprise AI Governance Is an Organizational Design Problem, and What a Ne
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 1.0 | March 2026
+**Version**: 1.1 | March 2026
 
 **License**: CC BY 4.0
 
@@ -14,11 +14,11 @@ _Why Enterprise AI Governance Is an Organizational Design Problem, and What a Ne
 
 Enterprise AI governance is discussed as a compliance problem (EU AI Act), a risk management problem (NIST AI RMF), and a values problem (OECD Principles). This paper reframes it as an organizational design problem and proposes the Constrained Organization---a new organizational form where AI agents perform operational execution within cryptographically verifiable boundaries defined by human authority.
 
-The form integrates three components: the CARE framework's Dual Plane Model separating trust (permanently human) from execution (shared with AI), the Enterprise Agent Trust Protocol (EATP) providing cryptographic trust lineage from organizational genesis to individual agent actions, and Cognitive Orchestration (CO) encoding institutional knowledge in a five-layer architecture that compounds over time.
+The form integrates four components: the CARE framework's Dual Plane Model separating trust (permanently human) from execution (shared with AI), the Enterprise Agent Trust Protocol (EATP) providing cryptographic trust lineage from organizational genesis to individual agent actions, Cognitive Orchestration (CO) encoding institutional knowledge in a five-layer architecture that compounds over time, and the Principled Architecture for Constrained Trust (PACT) providing the organizational architecture that makes governed AI tractable at institutional scale.
 
 Two questions that the AI governance literature has treated separately are addressed as inseparable: (1) how should the human-AI relationship be structured within organizations, and (2) who stewards the institutions that maintain governance standards. The institutional steward must itself operate as a constrained organization to be credible.
 
-The paper analyzes why existing institutional models---corporate-funded foundations and developer meritocracies---are structurally deficient for AI governance innovation. Six design hypotheses for a different institutional form are proposed. The Terrene Foundation---a Singapore CLG maintaining open standards for enterprise AI governance---is presented as a case study implementing these hypotheses and operating as a constrained organization where AI agents perform knowledge base operations within constitutional constraints (77 clauses, 11 entrenched provisions).
+The paper analyzes why existing institutional models---corporate-funded foundations and developer meritocracies---are structurally deficient for AI governance innovation. Six design hypotheses for a different institutional form are presented. The Terrene Foundation Limited (UEN 202611556G)---a Singapore Company Limited by Guarantee maintaining open standards for enterprise AI governance---implements these hypotheses and operates as a constrained organization where AI agents perform knowledge base operations within constitutional constraints (77 clauses, 11 entrenched provisions).
 
 This paper itself was produced using the constrained organization methodology, with experimental observations reported. Falsification conditions are stated. Limitations---including constraint gaming, power asymmetries, the circularity of defining human value through a human-designed framework, and the model's unproven status under real institutional pressure---are analyzed.
 
@@ -26,11 +26,11 @@ This paper itself was produced using the constrained organization methodology, w
 
 ## Disclosure
 
-I developed CARE, EATP, and CO, and built the Kailash platform that implements them. All open-source IP has been fully and irrevocably transferred to the Terrene Foundation. The Terrene Foundation is an independent entity; I contribute as an individual, governed by its constitution. There is no structural relationship between the Foundation and any commercial entity.
+I developed CARE, EATP, CO, and PACT, and built the Kailash platform that implements them. All open-source IP has been fully and irrevocably transferred to the Terrene Foundation. The Terrene Foundation is an independent entity; I contribute as an individual, governed by its constitution. There is no structural relationship between the Foundation and any commercial entity.
 
 The entire Kailash stack is released under Apache 2.0; specifications under CC BY 4.0. Patents PCT/SG2024/050503 (favorable International Preliminary Report on Patentability, all 18 claims) and P251088SG include an automatic Apache 2.0 Section 3 patent grant: every user of the licensed code receives a perpetual, worldwide, royalty-free patent license.
 
-I hold council positions on ASME and SBF. The foundation described in this paper is in the process of being constituted. No independent party has validated the claims in this paper. No revenue has been generated.
+I hold council positions on ASME and SBF. The Terrene Foundation Limited (UEN 202611556G) is incorporated as a Singapore Company Limited by Guarantee, with its 77-clause constitution filed with ACRA Singapore. All open-source IP has been irrevocably transferred. No independent party has validated the claims in this paper. No revenue has been generated.
 
 Judge the arguments on their merits.
 
@@ -42,7 +42,7 @@ What is the human actually for?
 
 Every enterprise deploying AI will face this question. Most prefer not to ask it directly. The evasions are familiar: "Humans approve AI outputs" (the human-in-the-loop answer, which becomes rubber-stamping at scale) and "AI operates autonomously" (the human-out-of-the-loop answer, which eliminates accountability). Both treat humans as components in a system rather than as the source of the system's authority and purpose.
 
-This paper proposes a third path: the **Constrained Organization**, an enterprise where AI agents perform operational execution within cryptographically verifiable boundaries defined by human authority. The contribution is organizational, not purely technical. The integration of a governance philosophy (CARE), a trust verification protocol (EATP), and an institutional knowledge methodology (CO) produces something qualitatively different from an improved governance framework: a new organizational form.
+This paper proposes a third path: the **Constrained Organization**, an enterprise where AI agents perform operational execution within cryptographically verifiable boundaries defined by human authority. The contribution is organizational, not purely technical. The integration of a governance philosophy (CARE), a trust verification protocol (EATP), an institutional knowledge methodology (CO), and a governance architecture (PACT) produces something qualitatively different from an improved governance framework: a new organizational form.
 
 The paper addresses two questions that the AI governance literature has treated separately:
 
@@ -52,7 +52,7 @@ The paper addresses two questions that the AI governance literature has treated 
 
 These questions are inseparable. An institution that publishes governance standards but does not operate under them has a credibility problem. An organization that operates under constraints but has no durable institutional home for those constraints has a sustainability problem.
 
-The previous papers in this series addressed three prerequisite questions. The CARE Core Thesis asked what humans are for in an AI-augmented enterprise (Hong, 2026a). The EATP Core Thesis asked how you make trust verifiable (Hong, 2026b). The CO Core Thesis asked how you structure the work (Hong, 2026c). Philosophy, protocol, methodology. This paper asks: what organizational form emerges when you put them together, and who stewards it?
+The previous papers in this series addressed four prerequisite questions. The CARE Core Thesis asked what humans are for in an AI-augmented enterprise (Hong, 2026a). The EATP Core Thesis asked how you make trust verifiable (Hong, 2026b). The CO Core Thesis asked how you structure the work (Hong, 2026c). The PACT Core Thesis asked how organizational architecture makes governed AI tractable at scale (Hong, 2026f). Philosophy, protocol, methodology, architecture. This paper asks: what organizational form emerges when you put them together, and who stewards it?
 
 ---
 
@@ -211,7 +211,7 @@ Version 2.2 introduces structured reasoning traces---machine-verifiable records 
 
 - **Dual-binding cryptographic signing**: The reasoning trace hash is always included in the parent record's signing payload (null when absent), preventing same-signer substitution of reasoning after the fact.
 
-- **Five-level confidentiality classification**: Reasoning traces can be classified from public to restricted, enabling cross-organizational trust verification without exposing sensitive reasoning.
+- **Five-level confidentiality classification**: Reasoning traces can be classified across five levels (PUBLIC through TOP_SECRET), enabling cross-organizational trust verification without exposing sensitive reasoning.
 
 - **Verification gradient**: Three levels---QUICK (ignores reasoning), STANDARD (warns if reasoning is absent), FULL (fails if required reasoning is missing)---allow organizations to calibrate verification depth to context.
 
@@ -297,7 +297,7 @@ OpenAI is the most visible example, but the pattern is widespread.
 
 ### 7.6 Design Hypotheses
 
-Given the structural deficiencies described above, what would a foundation designed specifically for AI governance innovation look like? The following are design hypotheses---principles that might address the identified problems. They are presented as one attempt at a solution, not as proven advantages.
+Given the structural deficiencies described above, what does a foundation designed specifically for AI governance innovation look like? The following are design hypotheses---principles that address the identified problems. They are presented as one attempt at a solution, now operational but not yet proven at scale.
 
 **Hypothesis 1: Legal Structure Should Prevent Mission Drift by Design**
 
@@ -343,7 +343,7 @@ The proposed model goes further, designing mechanisms for structured revenue sha
 
 The most common failure mode for mission-driven organizations is founder dependency. The founder's vision, relationships, and authority become indistinguishable from the organization itself. When the founder leaves, the organization collapses. When the founder stays too long, the organization cannot evolve beyond the founder's limitations.
 
-The proposed model addresses this with mandatory transition:
+The model addresses this with mandatory transition, now entrenched in the filed constitution:
 
 - Phase 1 (incorporation): Founder serves as Director and Chair (practical necessity for solo-founder CLG)
 - Phase 2 (10 Members): Founder may not chair any Board committee
@@ -357,7 +357,7 @@ The deeper design principle: the founder's job is to build an institution that n
 
 **Hypothesis 5: IP Transfer Should Be Complete and Irrevocable**
 
-The proposed model requires full and irrevocable transfer of all open-source IP to the foundation. All specifications (CC BY 4.0) and reference implementations (Apache 2.0) are foundation-owned from the start. Contributors retain their own copyright on contributions and grant an Apache 2.0 license, but the foundation holds all IP directly---not through licensing arrangements, not through graduated milestones, not contingent on revenue targets.
+The model requires full and irrevocable transfer of all open-source IP to the foundation. All specifications (CC BY 4.0) and reference implementations (Apache 2.0) are foundation-owned. This transfer has been completed: all open-source IP has been fully and irrevocably transferred to the Terrene Foundation. Contributors retain their own copyright on contributions and grant an Apache 2.0 license, but the foundation holds all IP directly---not through licensing arrangements, not through graduated milestones, not contingent on revenue targets.
 
 This eliminates the ambiguity that plagues foundations where IP ownership is distributed or conditional: the foundation owns it, full stop, and that ownership survives any changes to the contributor's circumstances.
 
@@ -365,7 +365,7 @@ The trade-off is real: the contributor gives up control before the foundation ha
 
 **Hypothesis 6: Plan for Failure Explicitly**
 
-Most institutions plan for success. The proposed model plans for failure. Twenty-six specific failure scenarios are documented across five categories---including scenarios where the model itself proves unworkable and where both the foundation and its contributors fail simultaneously.
+Most institutions plan for success. This model plans for failure. Twenty-six specific failure scenarios are documented across five categories---including scenarios where the model itself proves unworkable and where both the foundation and its contributors fail simultaneously.
 
 The critical design decision: perpetual irrevocable licenses ensure open-source code survives under Apache 2.0 even if every institutional entity ceases to exist. Standards remain under CC BY 4.0. The proposed Patent Covenant would provide additional protections that survive corporate dissolution. The technology is designed to outlive any particular institution.
 
@@ -395,7 +395,7 @@ The foundation's knowledge base operations are run by AI agents. This is the Exe
 
 - **20 specialized AI agents** across 7 categories manage research, drafting, cross-referencing, quality assurance, governance checking, security review, strategy analysis, and publication preparation.
 
-- **Specific agent roles**: Standards experts for CARE, EATP, CO, and COC. A constitutional expert who knows the 77 clauses. A security reviewer who scans for exposed secrets. An intermediate reviewer for quality. A deep analyst for failure analysis. A publication expert for academic submissions.
+- **Specific agent roles**: Standards experts for CARE, EATP, CO, PACT, and COC. A constitutional expert who knows the 77 clauses. A security reviewer who scans for exposed secrets. An intermediate reviewer for quality. A deep analyst for failure analysis. A publication expert for academic submissions.
 
 - **Every paper in this series** was produced using this process: AI agents drafted, the author directed, AI revised, the author corrected, the cycle repeated until the result was honest and useful.
 
@@ -489,7 +489,7 @@ This risks widening inequality: well-resourced organizations build constrained o
 
 ### 10.3 Standards Body Design
 
-If the proposed institutional model proves viable, it demonstrates that AI governance standards can be maintained by purpose-built institutions rather than repurposed software foundations. This has implications for how future governance standards bodies are designed---particularly the separation of funding from governance, the use of entrenched provisions, and the explicit planning for institutional failure modes.
+If this institutional model proves viable at scale, it demonstrates that AI governance standards can be maintained by purpose-built institutions rather than repurposed software foundations. This has implications for how future governance standards bodies are designed---particularly the separation of funding from governance, the use of entrenched provisions, and the explicit planning for institutional failure modes.
 
 ### 10.4 Non-Profit Transparency
 
@@ -523,11 +523,11 @@ This is acknowledged openly. The question is not whether the axioms are provably
 
 ### 11.4 Institutional Vulnerabilities
 
-**Founder dependency**: The person proposing this institution created CARE, designed EATP, built Kailash, holds council positions on ASME and SBF, and teaches at Singapore Management University. Until a second major contributor emerges, the foundation is indistinguishable from a one-person project with elaborate governance documentation. The board has not been constituted. No independent director has been recruited. Governance structures can create the conditions for independence, but they cannot manufacture it. Independence requires people who are genuinely independent.
+**Founder dependency**: The person who founded this institution created CARE, designed EATP, built Kailash, holds council positions on ASME and SBF, and teaches at Singapore Management University. The Foundation is incorporated and its constitution filed, but until a second major contributor emerges, it remains indistinguishable from a one-person project with elaborate governance documentation. Governance structures can create the conditions for independence, but they cannot manufacture it. Independence requires people who are genuinely independent.
 
 **The bootstrapping problem**: The revenue model---membership dues, certification fees, government grants, patent licensing---is theoretical. No revenue has been collected from any source. The reinforcing flywheel has not completed a single rotation. The risk is that it never starts. Many well-designed foundations have failed because they solved a problem that was real but not urgent enough to motivate adoption.
 
-**Singapore market size**: Global AI standards are being set now---A2A, MCP, the EU AI Act---while this foundation is still being constituted. A Singapore-first standard risks being swept aside by less elegant but more widely adopted alternatives. The "Singapore first, then ASEAN" principle is disciplined, but a standard that only Singapore uses is a local convention, not a global standard.
+**Singapore market size**: Global AI standards are being set now---A2A, MCP, the EU AI Act---while this foundation is newly incorporated. A Singapore-first standard risks being swept aside by less elegant but more widely adopted alternatives. The "Singapore first, then ASEAN" principle is disciplined, but a standard that only Singapore uses is a local convention, not a global standard.
 
 **Enforcement cost**: Enforcing patents against hyperscalers with unlimited legal budgets is prohibitively expensive for a non-profit. The proposed Patent Covenant's primary value would be deterrence, not enforcement---making extraction legally risky enough that rational actors avoid it. But a determined bad actor with sufficient resources could overwhelm the defense.
 
@@ -535,7 +535,7 @@ This is acknowledged openly. The question is not whether the axioms are provably
 
 ### 11.5 The Open-Washing Reflexive Critique
 
-The founding contributor created the IP and retains commercial products built on the open standards. One could argue this creates a structural advantage that contradicts the neutrality being claimed.
+The founding contributor created the IP and may build proprietary products on the open standards, as may anyone. One could argue this creates a structural advantage that contradicts the neutrality being claimed.
 
 The counter-argument: all open-source IP has been fully and irrevocably transferred to the foundation. The specifications are CC BY 4.0. The reference implementations are Apache 2.0. The foundation owns them directly---not through licensing, not conditionally. Anyone can use the code, fork it, compete with the contributor. The contributor has the same rights to the open-source IP as any other user: the Apache 2.0 license in the repository. The contributor may build proprietary products on the open standards---this is by design, not a loophole. The intended model is that the foundation publishes open standards, and anyone (including the contributor) builds commercial products on top.
 
@@ -585,7 +585,7 @@ The code is Apache 2.0 on GitHub. Anyone can use it, fork it, compete with me. T
 
 If this were primarily about extraction, the rational strategy would be different: keep the IP proprietary, license it, build a SaaS platform, seek venture capital. Every commercial AI governance company follows this path. The code being open and irrevocably licensed is the one thing that cannot be argued away.
 
-Whether the founder will follow through on the proposed governance transitions---stepping back from leadership, transferring authority---is a fair question that can only be answered by observing the actions. No one should trust the commitment until they see it happen.
+Whether the founder will follow through on the constitutionally entrenched governance transitions---stepping back from leadership, transferring authority---is a fair question that can only be answered by observing the actions. No one should trust the commitment until they see it happen.
 
 ---
 
@@ -593,15 +593,15 @@ Whether the founder will follow through on the proposed governance transitions--
 
 Enterprise AI governance has been framed as compliance, risk management, and values. This paper reframes it as organizational design.
 
-The Constrained Organization---integrating governance philosophy (CARE), trust verification (EATP), and institutional knowledge methodology (CO)---proposes a new organizational form where humans define the envelope and AI executes within it, with cryptographic verification that this relationship holds. Five properties distinguish it from existing forms: architectural separation, verifiable trust lineage, structured institutional knowledge, graduated autonomy, and compounding knowledge.
+The Constrained Organization---integrating governance philosophy (CARE), trust verification (EATP), institutional knowledge methodology (CO), and governance architecture (PACT)---proposes a new organizational form where humans define the envelope and AI executes within it, with cryptographic verification that this relationship holds. Five properties distinguish it from existing forms: architectural separation, verifiable trust lineage, structured institutional knowledge, graduated autonomy, and compounding knowledge.
 
-The institutional question is inseparable from the organizational one. Who stewards the standards that make constrained organizations possible? Neither corporate-funded foundations nor developer meritocracies are designed for this. Six design hypotheses---legal structure preventing mission drift, patents protecting community, contributor economic participation, mandatory founder transition, complete IP transfer, and explicit failure planning---propose a different institutional form.
+The institutional question is inseparable from the organizational one. Who stewards the standards that make constrained organizations possible? Neither corporate-funded foundations nor developer meritocracies are designed for this. Six design hypotheses---legal structure preventing mission drift, patents protecting community, contributor economic participation, mandatory founder transition, complete IP transfer, and explicit failure planning---define a different institutional form, now operational in the Terrene Foundation Limited.
 
 The Terrene Foundation demonstrates the model: a standards body whose operations are run by AI agents within constitutional constraints. The papers describing the framework were produced by the framework. The conversation histories are the audit trail. The corrections are the Trust Plane in action.
 
 Whether the Constrained Organization is genuinely new or merely a well-documented AI-assisted enterprise remains an empirical question. Whether the institutional design survives real pressure is unknown. Whether the founder follows through on the governance transitions is unproven.
 
-What is known: the code is open, the structures are published, the failure conditions are stated. What remains is the hardest part: execution.
+What is known: the code is open, the Foundation is incorporated, the constitution is filed, the IP is irrevocably transferred, the failure conditions are stated. What remains is the hardest part: proving the model works under real institutional pressure at scale.
 
 ---
 
@@ -649,13 +649,19 @@ Harre, M. (2025). From Firms to Computation: AI Governance and the Evolution of 
 
 Hassan, S. & De Filippi, P. (2021). Decentralized Autonomous Organization. _Internet Policy Review_, 10(2).
 
+Hong, J. (2026). Constraint Theater: Governance Without Wealth Effects. Submitted to _American Economic Review_. Theoretical foundation; the Constrained Organization is the integrated form derived from the formal model.
+
 Hong, J. (2026a). CARE: Collaborative Autonomous Reflective Enterprise---A Core Thesis. White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf.
 
 Hong, J. (2026b). Enterprise Agent Trust Protocol (EATP)---A Core Thesis. White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf.
 
 Hong, J. (2026c). Cognitive Orchestration (CO)---A Core Thesis. White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf.
 
-Hong, J. (2026). First Principles. Foundation Anchor Document 00. Terrene Foundation.
+Hong, J. (2026d). Cognitive Orchestration for Codegen (COC)---A Core Thesis. White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf.
+
+Hong, J. (2026f). PACT: Principled Architecture for Constrained Trust---A Core Thesis. White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/PACT-Core-Thesis.pdf.
+
+Hong, J. (2026, February). First Principles. Foundation Anchor Document 00. Terrene Foundation.
 
 Hu, B. A. & Rong, H. (2026). Sovereign Agents: Towards Infrastructural Sovereignty and Diffused Accountability in Decentralized AI. _arXiv:2602.14951_.
 
@@ -733,4 +739,13 @@ The tools used were Claude Code (Anthropic) with 18 specialized subagents. The f
 
 ---
 
-_See also: Hong, J. (2026). "CARE: A Core Thesis" (Hong, 2026a) for the governance framework. "EATP: A Core Thesis" (Hong, 2026b) for the trust verification protocol. "CO: A Core Thesis" (Hong, 2026c) for the methodology._
+## Version History
+
+| Version | Date       | Changes                                                                                                                                                                                                                                                                                                                       |
+| ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | March 2026 | Initial thesis: merged from Foundation-Core-Thesis and "Who Stewards" paper. CARE + EATP + CO integration as organizational design. Terrene Foundation case study. Falsification criteria. Broader impact                                                                                                                     |
+| 1.1     | March 2026 | Ecosystem update: PACT added as fourth specification. Updated cross-references to reflect four-specification integration (CARE + EATP + CO + PACT). Updated to reflect Foundation incorporation (UEN 202611556G) and completed IP transfer. Removed specific commercial product references per Foundation independence policy |
+
+---
+
+_This paper is Hong (2026e), derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." The Constrained Organization is the integrated form that emerges when all specifications are deployed; the five constitutive properties trace to the formal model's propositions. See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026f). "PACT: A Core Thesis" for organizational architecture._
