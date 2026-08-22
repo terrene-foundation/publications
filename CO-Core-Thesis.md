@@ -6,11 +6,22 @@ _A Methodology for Structuring Human-AI Collaboration_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 1.2 | August 2026
+**Version**: 1.2.1 | August 2026
 
 **License**: CC BY 4.0
 
 ---
+
+## Erratum — v1.2.1 (2026-08-22)
+
+| Erratum | Defect in v1.2 | Resolution |
+| ------- | -------------- | ---------- |
+| **E1** (unpropagated rename: COF → COL-F) | The domain-application diagram listed `COF (Finance) — in production`, and the v1.1 version-history row recorded `COF` among the six documented applications. **No specification for `COF` exists.** The finance work was renamed to **COL-F (COL for Finance)** — a finance *subject layer* over CO for Learners, specified at `co/applications/co-for-finance.md` and registered in `co/README.md`. The rename was recorded on the public site (`standards/co` — *"Formerly COF"*) and in the CO standard's registry, but never reached this thesis, so the thesis attributed production status to an abbreviation the Foundation does not use. This is the same class of change as the `CORP → COR` rename this document already tracks, and it was simply missed. | The diagram entry becomes `COL-F (Finance education) — in production`, naming what exists and what it actually is. The v1.1 history row is **left unchanged**: it is a record of what v1.1 stated, and rewriting it would erase the trail this erratum documents. |
+
+**Scope note.** The diagram is an illustrative set of exemplars, not a registry — it ends in `...` for
+that reason, and the authoritative roster of domain applications is `co/README.md`. Correcting an
+inaccurate exemplar is in scope for an erratum; extending the list to match the registry is not, and
+is deliberately not done here.
 
 ## Disclosure
 
@@ -289,7 +300,7 @@ CARE (Philosophy)
                     +-- COR (Research) — in production
                     +-- COE (Education) — in analysis
                     +-- COG (Governance) — in production
-                    +-- COF (Finance) — in production
+                    +-- COL-F (Finance education) — in production
                     +-- COComp (Compliance) — sketch
                     +-- ...
 ```
@@ -561,6 +572,7 @@ The tools used were Claude Code (Anthropic) with specialized subagents for resea
 | 1.0     | March 2026 | Initial thesis: seven first principles, five-layer architecture, three failure modes, conformance criteria, process model, domain application template. COC as reference implementation. Conformance analysis against Claude Code CLI |
 | 1.1     | March 2026 | Added Principle 8 (Authentic Voice and Responsible Co-Authorship). Six domain applications documented (COC, COR, COE, COG, COF, COComp). Principle count updated throughout. CORP renamed to COR                                      |
 | 1.2     | August 2026 | Publication reconciliation (terrene#73): restored the no-independent-validation and no-peer-review disclosures, which had been dropped from the custodial copy while the published copy retained them                                    |
+| 1.2.1   | August 2026 | Erratum E1: propagated the `COF → COL-F` rename the diagram had missed. `COF` names no specification; the finance application is COL-F, a subject layer over CO for Learners. The v1.1 row above is left as the record of what v1.1 stated |
 
 ---
 

@@ -8,9 +8,19 @@ _Doing Better Things, Not Just Doing Things Better_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.2 | August 2026
+**Version**: 2.2.1 | August 2026
 
 **License**: CC BY 4.0
+
+---
+
+## v2.2.1 erratum
+
+Documentation-grade correction to v2.2 (August 2026). No argument, framework definition, or falsification condition changes; a reader of v2.2 loses no substantive claim.
+
+| Erratum | Defect in v2.2 | Resolution |
+| ------- | -------------- | ---------- |
+| **E1** (undated reference-implementation census) | The Terrene Foundation case study reported the implementation's artefact counts --- agents, hook scripts, structured workflows --- as undated present-tense properties. The figures were measured on 2026-03-13 and never re-stated, so they were silently false within weeks of that measurement; by August 2026 the agent count and the workflow count each understated the implementation by roughly two-fold. The counts were internally consistent across the paper series, which is why consistency checking never caught the drift. | Every count is restated as a **dated census** with its measurement date and basis, and the case study opens with a note that the figures measure a live repository at a point in time. A stale figure is now visibly stale rather than silently wrong. Corrected values (2026-08-22): 46 agent specializations, 9 registered hook scripts over 6 shared library modules, 28 structured workflows, 44 rule files, 17 skill directories. |
 
 ---
 
@@ -218,6 +228,8 @@ Hu and Rong (2026) explore "Sovereign Agents"---AI agents with cryptographic sel
 
 The Terrene Foundation---a Singapore Company Limited by Guarantee that maintains open standards for enterprise AI governance---operates as a constrained organization. This is not a post-hoc framing; it is the intended operating model.
 
+The artefact counts in this case study are a **census of the repository taken on 2026-08-22** --- file-level counts of the `.claude/` artefact tree and `scripts/hooks/`. They measure a repository under continuous development, so they are a figure at a date rather than a fixed property of the model; a later reader should expect different numbers and can re-derive them from the repository at that time.
+
 **Trust Plane (Human-Defined):**
 
 - A 77-clause constitution with 11 entrenched provisions defines organizational boundaries
@@ -227,7 +239,7 @@ The Terrene Foundation---a Singapore Company Limited by Guarantee that maintains
 
 **Execution Plane (AI-Agent-Operated):**
 
-- 20 specialized AI agents manage knowledge base operations across 7 categories
+- 46 specialized AI agents (census of 2026-08-22) manage knowledge base operations across six namespaces --- standards, research, policy, education, management, and cross-cutting
 - Research, drafting, cross-referencing, quality assurance, and governance checking are agent-performed
 - Every paper in this series was produced using this process
 
@@ -239,10 +251,10 @@ The Terrene Foundation---a Singapore Company Limited by Guarantee that maintains
 
 **Institutional Knowledge (CO Five-Layer):**
 
-- Layer 1 (Intent): 20 agents with domain-specific expertise
-- Layer 2 (Context): Rules, skills, reference documentation---living institutional handbook
-- Layer 3 (Guardrails): 10 hook scripts (pre-execution, post-execution, and lifecycle), including anti-amnesia mechanisms
-- Layer 4 (Instructions): 14 structured workflows with approval gates
+- Layer 1 (Intent): 46 agents with domain-specific expertise
+- Layer 2 (Context): 44 rule files and 17 skill directories of reference documentation---living institutional handbook
+- Layer 3 (Guardrails): 9 registered hook scripts (pre-execution, post-execution, and lifecycle) over 6 shared library modules, including anti-amnesia mechanisms
+- Layer 4 (Instructions): 28 structured workflows with approval gates
 - Layer 5 (Learning): Observation logs, pattern analysis, knowledge evolution
 
 The production of this paper is itself evidence. The AI agents produced competent initial drafts. I defined what "honest" meant (remove unverifiable claims), what "useful" meant (explain for practitioners, not academics), and what to reject (marketing, overstatement, false precision). The agents could not make these judgments. I could not produce the drafts at this speed. The constrained organization is the synthesis.
