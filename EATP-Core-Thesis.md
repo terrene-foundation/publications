@@ -6,11 +6,18 @@ _Why Trust Lineage Is the Missing Infrastructure for Enterprise AI_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.3 | August 2026
+**Version**: 2.3.1 | August 2026
 
 **License**: CC BY 4.0
 
 ---
+
+## Erratum — v2.3.1 (2026-08-22)
+
+| Erratum | Defect in v2.3 | Resolution |
+| ------- | -------------- | ---------- |
+| **E1** (undated reference-implementation census) | The Reference Implementation section stated the `kailash.trust` module, line and test-file counts as undated present-tense properties. The figures were correct for the pinned release `kailash-py v2.28.1`, but nothing said so, so a reader could not distinguish them from a claim about the current SDK — and the same undated-census pattern had already gone silently false elsewhere in the corpus (see the CARE v2.2.1 erratum). | The counts are restated as a **dated census of a pinned tag**, with the measurement date and the counting basis given, and the current-release figures noted for contrast. Verified against the tag: 222 modules and 101,157 lines, matching the stated figures. |
+
 
 ## Abstract
 
@@ -345,7 +352,7 @@ An implementation MAY self-declare its conformance level, the specification vers
 
 ## Reference Implementation
 
-The reference implementation lives in the `kailash.trust` namespace of **kailash-py v2.28.1** (`pip install kailash`), the Foundation-owned Apache 2.0 Python SDK, and implements the complete protocol specification. The trust namespace spans 222 modules (~101,000 lines of source) with 209 test files; it houses both the EATP protocol layer and the PACT governance engine, which builds on the same trust primitives.
+The reference implementation lives in the `kailash.trust` namespace of **kailash-py v2.28.1** (`pip install kailash`), the Foundation-owned Apache 2.0 Python SDK, and implements the complete protocol specification. The trust namespace spans 222 modules (101,157 lines of source) with 209 test files — a **census of the pinned release `kailash-py v2.28.1` taken on 2026-08-22**, counting `.py` files under `src/kailash/trust`. The figures measure a pinned tag rather than a moving branch, so they do not go stale the way an undated count of a live repository does; a later release will differ (at v2.63.0 the same namespace spans 269 modules and 127,832 lines). it houses both the EATP protocol layer and the PACT governance engine, which builds on the same trust primitives.
 
 ### Core Protocol Implementation
 
@@ -730,3 +737,4 @@ _This paper is Hong (2026b), derived from the theoretical foundation in Hong, J.
 | 2.1     | March 2026    | SDK-paper alignment (ConstraintType, TrustPosture enums renamed). Terminology consistency enforced                                                                                                                       |
 | 2.2     | March 2026    | Structured reasoning traces with dual-binding cryptographic signing. REASONING_REQUIRED constraint type. Confidentiality classification. Verification gradient integration (QUICK ignores → STANDARD warns → FULL fails) |
 | 2.3     | August 2026   | Publication reconciliation (terrene#73): merged two unsynced edit streams. Restored the Notational Conventions (RFC 2119/8174) block and the normative Conformance levels, which existed only in the published copy; adopted the current kailash-py v2.28.1 / `kailash.trust` implementation surface; retained the custodial additions (dimension-scoped delegation, chain-depth guidance, posture-transition triggers, proxy enforcement pattern, VerificationBundle, held-timeout rule, PACT references) |
+| 2.3.1   | August 2026 | Erratum E1: the reference-implementation census is restated as a dated census of the pinned tag `kailash-py v2.28.1`, with its counting basis. Figures verified against the tag; no count changed |
