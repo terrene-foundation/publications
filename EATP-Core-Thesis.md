@@ -6,7 +6,9 @@ _Why Trust Lineage Is the Missing Infrastructure for Enterprise AI_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 2.2 | March 2026 (implementation and conformance sections revised 2026)
+**Version**: 2.3 | August 2026
+
+**License**: CC BY 4.0
 
 ---
 
@@ -108,6 +110,10 @@ The critical rule: delegations can only reduce authority, never expand it. A man
 
 This mirrors how healthy human organizations actually work. Authority flows downward and narrows. A CFO delegates budget authority to department heads, who delegate smaller budgets to team leads. No one in the chain creates authority they do not possess. EATP makes this organizational principle cryptographically enforceable.
 
+Delegations can be scoped to specific constraint dimensions. A CFO may delegate only Financial authority; a CTO may delegate only Operational authority. Monotonic tightening applies to these dimension subsets: a sub-delegate MUST receive a subset of the delegator's dimensions, never a superset. An agent that holds only Financial and Temporal authority cannot delegate Operational or Data Access authority it does not possess.
+
+Implementations SHOULD enforce a configurable maximum depth for delegation chains (the reference implementation defaults to 10). Deeper chains increase verification latency, expand the attack surface if any intermediate key is compromised, and make trust reasoning harder for human auditors reviewing the chain.
+
 Optionally, a Delegation Record may include a **reasoning trace** --- a structured record of why the delegation was made, what alternatives were considered, and what evidence supported the decision. This answers a question that traditional access control never asks: not just "who delegated what to whom," but "why did they decide to do so?" Reasoning traces have their own confidentiality classification and a dual-binding cryptographic model: the reasoning trace hash is bound into the parent record's signature (preventing post-hoc substitution), while a separate reasoning signature enables independent verification of the reasoning content. This allows the rationale to be verified, redacted, or withheld independently of the delegation itself.
 
 ### 3. Constraint Envelope
@@ -159,7 +165,7 @@ When an agent proposes an action, the system checks the entire Trust Lineage Cha
 | **Held**          | Soft limit exceeded      | Queue for human approval         |
 | **Blocked**       | Hard limit violated      | Reject with explanation          |
 
-This gradient focuses human attention where it matters: near boundaries and at limits, rather than distributing it across all actions. A manager does not need to see the routine transactions. They need to see the ones approaching limits or entering grey areas.
+This gradient focuses human attention where it matters: near boundaries and at limits, rather than distributing it across all actions. A manager does not need to see the routine transactions. They need to see the ones approaching limits or entering grey areas. HELD actions SHOULD NOT auto-approve after timeout. Implementations MAY auto-deny or auto-downgrade the action instead. Any organization that enables timeout-based auto-approval MUST audit the weaker guarantee by recording a FLAGGED Audit Anchor, acknowledging that the action proceeded without explicit human authorization.
 
 The reference implementation provides three verification levels that trade off speed for thoroughness: QUICK (~1ms, hash and expiration check), STANDARD (~5ms, capability and constraint validation), and FULL (~50ms, cryptographic signature verification of the entire chain including reasoning trace hash and signature verification when present). These latency figures are design targets, not benchmarks; actual performance depends on implementation, storage backend, and chain depth. A `REASONING_REQUIRED` constraint mandates that reasoning traces be present. The name expresses organizational policy intent; enforcement escalates with the verification gradient: at STANDARD level, missing reasoning produces a non-blocking warning; at FULL level, missing reasoning when `REASONING_REQUIRED` is active causes verification failure. When reasoning traces are present at FULL level, both hash integrity and signature validity are verified. Production deployments can select the appropriate level based on the sensitivity of each operation.
 
@@ -180,6 +186,8 @@ EATP supports graduated autonomy through five trust postures:
 \*"Pseudo-Agent" denotes that the software acts as an interface (not an autonomous agent); the human performs all reasoning and decision-making.
 
 Postures can be upgraded as trust builds through demonstrated performance. They can be downgraded instantly if conditions change. This is how organizations actually manage delegation: earn trust through track record, lose it through failure.
+
+Three categories of posture transition trigger exist: (1) trust violation, where a constraint breach causes immediate downgrade; (2) manual request, where a human decides to adjust the posture based on judgment; and (3) environmental condition, where changed circumstances --- such as a required reviewer becoming unavailable, a network partition isolating the trust store, or a time-critical operational context --- warrant precautionary downgrade. Notably, a time-critical context does NOT justify auto-approving a HELD action; urgency may warrant downgrading the posture (reducing what the agent can do autonomously) but never bypassing constraint enforcement.
 
 ### Cascade Revocation
 
@@ -309,7 +317,7 @@ The Terrene Foundation publishes three peer specifications:
 
 **CO (Cognitive Orchestration)** (Hong, 2026c) defines how humans structure AI's work. CO provides a five-layer architecture for maintaining institutional context, guardrails, and operating procedures across human-AI collaboration. COC (Cognitive Orchestration for Codegen) (Hong, 2026d) is the initial domain application, instantiating CO for software development. CO establishes the "how" for operational methodology.
 
-Each specification is independently useful. An organization can adopt EATP without CARE or CO. It can adopt CARE's philosophy without implementing EATP's protocol. It can use CO's methodology without either. But together, they form a coherent governance stack: CARE defines the principles, EATP provides verifiable trust lineage, and CO structures the work. The Constrained Organization thesis (Hong, 2026e) examines the organizational form that emerges when all three are deployed together.
+Each specification is independently useful. An organization can adopt EATP without CARE or CO. It can adopt CARE's philosophy without implementing EATP's protocol. It can use CO's methodology without either. But together, they form a coherent governance stack: CARE defines the principles, EATP provides verifiable trust lineage, CO structures the work, and PACT (Hong, 2026f) provides the organizational architecture that makes envelope definition, knowledge access, and accountability tractable across multi-level hierarchies. The Constrained Organization thesis (Hong, 2026e) examines the organizational form that emerges when all are deployed together.
 
 ### Independent Adoptability
 
@@ -349,7 +357,7 @@ The reference implementation lives in the `kailash.trust` namespace of **kailash
 
 ### Enforcement and Operations
 
-**Enforcement**: StrictEnforcer for production use (blocks unauthorized actions, holds for human review) and ShadowEnforcer for observation mode (logs what would be blocked without interrupting). A challenge-response mechanism enables runtime verification of agent capabilities. Python decorators provide three-line integration for any async function.
+**Enforcement**: StrictEnforcer for production use (blocks unauthorized actions, holds for human review) and ShadowEnforcer for observation mode (logs what would be blocked without interrupting). A challenge-response mechanism enables runtime verification of agent capabilities. Python decorators provide three-line integration for any async function. The reference architecture for enforcement is a **proxy enforcement pattern**: an EATP-aware proxy sits between agents and the systems they act upon, intercepting every action to run VERIFY before forwarding to the target system and AUDIT after execution completes. This separates trust enforcement from both agent logic and target system implementation, enabling EATP integration without modifying either.
 
 **Messaging**: Inter-agent messaging with cryptographic signing, verification, and replay protection. Agents exchange messages through typed channels with envelope authentication.
 
@@ -375,7 +383,7 @@ The reference implementation lives in the `kailash.trust` namespace of **kailash
 
 ### Interoperability and Integration
 
-**Six credential formats**: Trust chains can be exported to and imported from JWT (RFC 7519), W3C Verifiable Credentials 2.0, Decentralized Identifiers (DID), UCAN v0.10.0, SD-JWT (selective disclosure), and Biscuit-inspired attenuation tokens. W3C VC and DID export enables cross-organizational trust exchange.
+**Six credential formats**: Trust chains can be exported to and imported from JWT (RFC 7519), W3C Verifiable Credentials 2.0, Decentralized Identifiers (DID), UCAN v0.10.0, SD-JWT (selective disclosure), and Biscuit-inspired attenuation tokens. W3C VC and DID export enables cross-organizational trust exchange. A **VerificationBundle** format provides self-contained export packages containing the complete chain, Audit Anchors, and verification metadata --- enabling offline or cross-system verification without access to the original trust store. VerificationBundles complement the credential formats above (which serve runtime authorization) by serving audit, compliance, and regulatory submission use cases.
 
 **Google A2A protocol integration**: Automatic EATP capability card generation for A2A agent networks, enabling cross-agent trust establishment in multi-agent systems that use Google's Agent-to-Agent protocol.
 
@@ -635,13 +643,17 @@ EATP's value as a standard does not depend on any single implementation.
 
 ### Companion Papers
 
-24. Hong, J. (2026a). "CARE: A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf. Companion paper providing the philosophical governance framework that EATP operationalizes.
+24. Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." Submitted to _American Economic Review_. Theoretical foundation; EATP implements the attribution mechanisms from the five institutional prerequisites.
 
-25. Hong, J. (2026c). "CO: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf. Companion paper defining the domain-agnostic methodology for structuring human-AI collaboration.
+25. Hong, J. (2026a). "CARE: A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf. Companion paper providing the philosophical governance framework that EATP operationalizes.
 
-26. Hong, J. (2026d). "COC: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf. Domain application of CO for software development.
+26. Hong, J. (2026c). "CO: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf. Companion paper defining the domain-agnostic methodology for structuring human-AI collaboration.
 
-27. Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf. Companion paper on organizational design for AI governance stewardship.
+27. Hong, J. (2026d). "COC: A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf. Domain application of CO for software development.
+
+28. Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf. Companion paper on organizational design for AI governance stewardship.
+
+29. Hong, J. (2026f). "PACT: Principled Architecture for Constrained Trust -- A Core Thesis." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/PACT-Core-Thesis.pdf. Companion paper on organizational architecture for accountable AI delegation.
 
 ---
 
@@ -671,7 +683,7 @@ The tools used were Claude Code (Anthropic) with specialized subagents for resea
 
 ---
 
-_See also: Hong, J. (2026a). "CARE: A Core Thesis" for the governance framework that EATP operationalizes. Hong, J. (2026c). "CO: A Core Thesis" for domain-agnostic human-AI collaboration methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026e). "The Constrained Organization" for organizational design._
+_This paper is Hong (2026b), derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." EATP implements the "attribution mechanisms" identified as the first of five institutional prerequisites. See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026c). "CO: A Core Thesis" for methodology. Hong, J. (2026d). "COC: A Core Thesis" for development methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design. Hong, J. (2026f). "PACT: A Core Thesis" for organizational architecture._
 
 ---
 
@@ -706,3 +718,15 @@ _See also: Hong, J. (2026a). "CARE: A Core Thesis" for the governance framework 
 - **Reasoning traces are rationale, not proof**: They document stated justification, not decision quality; post-hoc rationalization remains a risk
 - **Constraint gaming cannot be prevented**: It can only be detected, traced, and mitigated through ongoing human oversight
 - **Performance figures are design targets**: Not benchmarks; actual performance depends on implementation
+
+---
+
+## Version History
+
+| Version | Date          | Changes                                                                                                                                                                                                                  |
+| ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.0     | January 2026  | Initial thesis: five elements, Trust Lineage Chain, constraint dimensions, verification gradient                                                                                                                         |
+| 2.0     | February 2026 | Trust postures formalized (5-level progression). Dual-binding signing model. Honest limitations expanded                                                                                                                 |
+| 2.1     | March 2026    | SDK-paper alignment (ConstraintType, TrustPosture enums renamed). Terminology consistency enforced                                                                                                                       |
+| 2.2     | March 2026    | Structured reasoning traces with dual-binding cryptographic signing. REASONING_REQUIRED constraint type. Confidentiality classification. Verification gradient integration (QUICK ignores → STANDARD warns → FULL fails) |
+| 2.3     | August 2026   | Publication reconciliation (terrene#73): merged two unsynced edit streams. Restored the Notational Conventions (RFC 2119/8174) block and the normative Conformance levels, which existed only in the published copy; adopted the current kailash-py v2.28.1 / `kailash.trust` implementation surface; retained the custodial additions (dimension-scoped delegation, chain-depth guidance, posture-transition triggers, proxy enforcement pattern, VerificationBundle, held-timeout rule, PACT references) |

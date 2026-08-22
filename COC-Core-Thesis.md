@@ -8,6 +8,8 @@ _Killing Vibe Coding: The 5 Layers of the Human-on-the-Loop Developer_
 
 **Version**: 1.1 | March 2026
 
+**License**: CC BY 4.0
+
 ---
 
 ## Executive Summary
@@ -18,7 +20,7 @@ The problem is not the AI model. Models improve monthly. The problem is the comp
 
 This paper introduces Cognitive Orchestration for Codegen (COC), a five-layer architecture that provides AI coding assistants with the organizational context, guardrails, and operating procedures they need to function as disciplined engineering partners. COC applies the Human-on-the-Loop philosophy, established in the CARE framework, directly to software development: the developer's primary contribution is not writing code, but defining and maintaining the institutional context that makes AI-generated code trustworthy.
 
-COC is the first domain application of Cognitive Orchestration (CO), the domain-agnostic base methodology for structuring human-AI collaboration. CO defines seven first principles and a five-layer architecture that apply across any domain where AI operates under human oversight. COC instantiates these principles for software development. The CO specification and thesis are published separately (see Hong, 2026c). The principles are not new. The systematic organization of those principles into a five-layer framework is.
+COC is the first domain application of Cognitive Orchestration (CO), the domain-agnostic base methodology for structuring human-AI collaboration. CO defines eight first principles and a five-layer architecture that apply across any domain where AI operates under human oversight. COC instantiates these principles for software development. The CO specification and thesis are published separately (see Hong, 2026c). The principles are not new. The systematic organization of those principles into a five-layer framework is.
 
 ---
 
@@ -145,7 +147,7 @@ The implementation contains 25 skill directories with over 100 files, all follow
 
 Two principles govern this layer.
 
-The first is **Framework-First**: never code from scratch; always check frameworks first. The Kailash Core SDK provides 115+ production-ready nodes, which are pre-built building blocks for file I/O, HTTP operations, data transformation, validation, and dozens of other enterprise concerns. When the AI knows these exist (because the context tells it), it composes solutions from tested components rather than generating everything from scratch. This is the operational expression of the principle "composition over creation."
+The first is **Framework-First**: never code from scratch; always check frameworks first. The Kailash Core SDK provides 140+ production-ready nodes, which are pre-built building blocks for file I/O, HTTP operations, data transformation, validation, and dozens of other enterprise concerns. When the AI knows these exist (because the context tells it), it composes solutions from tested components rather than generating everything from scratch. This is the operational expression of the principle "composition over creation."
 
 The second is **Single Source of Truth**: each piece of institutional knowledge lives in exactly one place, with no contradictions. When a convention changes, it changes in one file. The AI never encounters conflicting guidance.
 
@@ -228,7 +230,7 @@ This is the most direct expression of the Human-on-the-Loop philosophy in the de
 
 ---
 
-## 5. The Trinity Integration: CARE, EATP, CO, and COC
+## 5. The Quartet Integration: CARE, EATP, CO, PACT, and COC
 
 COC is not a standalone framework. It inherits from a stack of interlocking standards published by the Terrene Foundation:
 
@@ -237,10 +239,11 @@ CARE (Philosophy)
   └── CO (Methodology)
         └── COC (Domain Application: Codegen)
 
-EATP (Trust Protocol) ← mapped by all three
+EATP (Trust Protocol) ← mapped by all four
+PACT (Organizational Architecture) ← operationalizes CARE governance
 ```
 
-**CARE** provides the governance philosophy: the Dual Plane Model (Trust Plane + Execution Plane), the Mirror Thesis (AI reveals uniquely human value), Human-on-the-Loop governance, and the eight CARE principles. **CO** translates that philosophy into a domain-agnostic methodology: seven first principles, a five-layer architecture, three failure modes, and a conformance framework. **COC** instantiates CO for software development: specific agents, specific skills, specific hooks, specific workflows. **EATP** provides the cryptographic trust infrastructure that all three reference: Genesis Records, Delegation Records, Constraint Envelopes, Capability Attestations, and Audit Anchors.
+**CARE** provides the governance philosophy: the Dual Plane Model (Trust Plane + Execution Plane), the Mirror Thesis (AI reveals uniquely human value), Human-on-the-Loop governance, and the eight CARE principles. **CO** translates that philosophy into a domain-agnostic methodology: eight first principles, a five-layer architecture, three failure modes, and a conformance framework. **COC** instantiates CO for software development: specific agents, specific skills, specific hooks, specific workflows. **EATP** provides the cryptographic trust infrastructure that all four specifications reference: Genesis Records, Delegation Records, Constraint Envelopes, Capability Attestations, and Audit Anchors. **PACT** (Hong, 2026f) provides the organizational architecture that operationalizes CARE governance, defining how constrained organizations structure trust delegation, capability boundaries, and institutional knowledge management.
 
 The mapping from CARE and EATP to COC is direct:
 
@@ -273,9 +276,9 @@ The developer working within COC is operating a constrained organization of one:
 
 COC is the proof of concept for CO. It was built first, before CO was formalized, and the patterns that emerged in COC were generalized into the CO specification. The relationship is:
 
-- **CO** defines the methodology: seven principles, five layers, three failure modes, conformance criteria
+- **CO** defines the methodology: eight principles, five layers, three failure modes, conformance criteria
 - **COC** demonstrates that methodology works in practice: specific implementations, measured outcomes, real deployment
-- **CO for other domains** (Compliance, Finance, Operations) can reference COC as evidence that the five-layer architecture produces results
+- **CO for other domains** (Compliance, Finance, Operations, Healthcare, Education, Research) can reference COC as evidence that the five-layer architecture produces results
 
 COC content folds into the CO paper for publication purposes. The CO paper (Hong, 2026c) cites COC as the reference implementation and draws on COC deployment experience for its empirical claims.
 
@@ -326,7 +329,7 @@ The divergence falls into two categories:
 
 Because of this convergence, COC is not being submitted as a standalone publication. The execution primitives (L1-L3) are now commodity -- publishing them as novel would be dishonest. The governance methodology (L4-L5) and trust integration (EATP) are genuinely novel, but they belong in the CO paper, not in a codegen-specific paper.
 
-COC remains the reference implementation for CO. The CO paper (Hong, 2026c) cites COC deployment experience as empirical evidence. Teams building CO for other domains (Compliance, Finance, Operations) reference COC as proof that the five-layer architecture works in practice.
+COC remains the reference implementation for CO. The CO paper (Hong, 2026c) cites COC deployment experience as empirical evidence. Teams building CO for other domains (six domain applications are defined in the CO specification, including Compliance, Finance, Operations, Healthcare, Education, and Research) reference COC as proof that the five-layer architecture works in practice.
 
 Any team can take individual elements from COC and apply them to their existing tools. The CLAUDE.md pattern works with any AI coding assistant that supports project-level configuration. The hook-based guardrails pattern works with any tool that supports pre-action scripts. The value is in the systematic combination, the governance integration, and the institutional discipline that the five-layer structure encourages.
 
@@ -371,10 +374,13 @@ This is the development equivalent of "doing better things instead of doing thin
 ## References
 
 - Bainbridge, L. (1983). "Ironies of Automation." _Automatica_, 19(6), 775-779.
+- Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." Submitted to _American Economic Review_. Theoretical foundation for this paper series.
 - Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise — A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf.
 - Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) — A Core Thesis." White Paper Series, Version 2.2. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/EATP-Core-Thesis.pdf.
 - Hong, J. (2026c). "Cognitive Orchestration (CO) — A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CO-Core-Thesis.pdf.
-- Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." Submitted to AIES 2026. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf.
+- Hong, J. (2026d). "Cognitive Orchestration for Codegen (COC): A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf. (This paper.)
+- Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf.
+- Hong, J. (2026f). "PACT: Principled Architecture for Constrained Trust -- A Core Thesis." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/PACT-Core-Thesis.pdf.
 - Karpathy, A. (2025). "Vibe Coding." Personal blog post, February 2025.
 - Perry, N., Srivastava, M., Kumar, D., & Boneh, D. (2023). "Do Users Write More Insecure Code with AI Assistants?" _ACM CCS 2023_.
 - Polanyi, M. (1966). _The Tacit Dimension_. University of Chicago Press.
@@ -411,4 +417,13 @@ The tools used were Claude Code (Anthropic) with specialized subagents for resea
 
 ---
 
-_See also: Hong, J. (2026). "CO: A Core Thesis" for the domain-agnostic base methodology. "CARE: A Core Thesis" for the governance philosophy. "EATP: A Core Thesis" for the trust verification protocol. "The Constrained Organization" for institutional design._
+## Version History
+
+| Version | Date          | Changes                                                                                                                                                    |
+| ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | February 2026 | Initial thesis: five-layer architecture for codegen, vibe coding critique, anti-amnesia patterns, institutional knowledge engineering, Trinity integration |
+| 1.1     | March 2026    | CO principle count updated (seven → eight). Acknowledged convergence with execution tools as validation. Terminology alignment with CO v1.1                |
+
+---
+
+_This paper is Hong (2026d), derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." COC is the reference implementation demonstrating that specification quality (the q parameter) can be structurally improved. See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026c). "CO: A Core Thesis" for the base methodology. Hong, J. (2026e). "The Constrained Organization" for institutional design. Hong, J. (2026f). "PACT: A Core Thesis" for organizational architecture._

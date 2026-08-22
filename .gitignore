@@ -6,3 +6,16 @@
 
 # Obsidian editor config (per-author; not part of the published artefact)
 .obsidian/
+
+# Secrets — never commit. See terrene rules/security.md MUST §2.
+.env
+.env.*
+!.env.example
+
+# Session/runtime artifacts written into the repo root by tooling
+.claude/
+
+# render.py intermediates (the PDF is the artefact; these are byproducts)
+*.html
+*.runtitle.css
+/print.css

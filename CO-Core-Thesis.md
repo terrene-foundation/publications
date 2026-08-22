@@ -6,7 +6,9 @@ _A Methodology for Structuring Human-AI Collaboration_
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 1.1 | March 2026
+**Version**: 1.2 | August 2026
+
+**License**: CC BY 4.0
 
 ---
 
@@ -16,7 +18,7 @@ I developed Cognitive Orchestration and built the Kailash ecosystem that impleme
 
 Two patent applications are pending (PCT/SG2024/050503 and P251088SG; favorable IPRP received, national phase filings in progress in Singapore and the United States; no patent has been granted). The Apache 2.0 license includes an automatic patent grant (Section 3 of the Apache License) providing users a perpetual, royalty-free patent license for the contributed code, with defensive termination if the user initiates patent litigation.
 
-This paper is published under CC BY 4.0 (Creative Commons Attribution). No independent party has validated the claims in this paper. There has been no academic peer review. The methodology has been implemented and tested in software development (COC); applications to other domains are proposed, not proven.
+This paper is published under CC BY 4.0 (Creative Commons Attribution). No independent party has validated the claims in this paper. There has been no academic peer review. The methodology has been implemented and tested in software development (COC) and deployed in the further domain applications listed above; those deployments have not been independently validated.
 
 ---
 
@@ -58,9 +60,9 @@ Cognitive Orchestration (CO) extracts the domain-agnostic principles and archite
 
 ---
 
-## Part II: Seven First Principles
+## Part II: Eight First Principles
 
-CO rests on seven principles. Each is domain-agnostic. Each is stated in falsifiable form.
+CO rests on eight principles. Each is domain-agnostic. Each is stated in falsifiable form.
 
 ### Principle 1: The Institutional Knowledge Thesis
 
@@ -100,6 +102,8 @@ The human-on-the-loop contributes what AI cannot: institutional judgment about b
 
 AI models are probabilistic. They follow instructions most of the time. "Most of the time" is not acceptable for security rules, regulatory requirements, or safety-critical procedures. CO distinguishes between soft enforcement (rules the AI follows probabilistically) and hard enforcement (deterministic mechanisms that block violations regardless of the AI's state). This is the difference between telling a new hire "please follow this policy" and building a system that prevents policy violations at the infrastructure level.
 
+The asymmetric structure of the five layers reflects a theoretical constraint. Under incomplete contracts (Hart, 1995), most orchestration decisions require semantic judgment because the specification cannot anticipate every contingency; the AI must interpret goals, route tasks, and assess completion in situations the rule-writer could not foresee. Under absent wealth effects (Fama & Jensen, 1983), safety decisions require deterministic enforcement because the system lacks incentive alignment for self-governance; it optimizes for task completion, not organizational safety. The boundary between semantic and deterministic mechanisms is not a design preference. It is a structural consequence of delegation to systems that reason but do not bear consequences for how they reason.
+
 ### Principle 6: Bainbridge's Irony Applied
 
 **Statement**: The more AI handles routine execution, the more critical it becomes that humans maintain deep understanding of the work being executed.
@@ -117,6 +121,18 @@ Stateless AI interactions start from zero every session. The same mistakes are m
 CO creates a compounding loop: observations from AI-assisted work are captured, patterns are identified, successful patterns are formalized into institutional knowledge, and that knowledge improves future AI interactions. Over months, the gap between a CO-equipped organization and a stateless one widens, not because the model improves, but because the institutional knowledge deepens.
 
 This is the strategic argument: model capability is commodity and depreciates with each new release. Institutional knowledge is specific and appreciates with each successful application.
+
+### Principle 8: Authentic Voice and Responsible Co-Authorship
+
+**Statement**: CO exists to produce genuinely excellent work through human-AI collaboration. The human directs; the AI assists. The output reflects the human's intellectual contribution, not the tool that helped produce it. CO practitioners disclose AI assistance per venue and institution requirements. They do not conceal it.
+
+Statistical AI detection tools (Originality.ai, GPTZero, Turnitin) use proxy signals: perplexity, burstiness, vocabulary frequency. These proxies measure stylistic uniformity, not intellectual origin. A human who writes formulaic prose triggers false positives. Liang et al. (2023) found false positive rates exceeding 61% for non-native English speakers. The tools measure the wrong thing.
+
+CO addresses the real question: did a human direct this work? The deliberation records, approval gates, and journals create an auditable trail of genuine human intellectual engagement. This trail is stronger evidence of authentic co-authorship than any statistical proxy. A researcher using CO produces higher quality work than one who free-rides on AI, because CO forces articulation (Principle 1), deliberation (Principle 4), teaching (Principle 6), and defense at every step. The architecture makes free-riding harder, not easier.
+
+Writing style constraints in CO implementations exist to mitigate detection bias in tools whose statistical methods flag stylistic patterns that have no bearing on work quality. The distinction matters: concealing AI use is dishonest; mitigating detection bias in tools that flag stylistic patterns irrelevant to intellectual contribution is not.
+
+**Falsification condition**: Abandon this principle if AI detection tools achieve reliable detection of intellectual origin (not just stylistic patterns) with false positive rates below 5% across native and non-native English speakers.
 
 ---
 
@@ -269,10 +285,12 @@ CARE (Philosophy)
         +-- CO (Methodology)
               "How does the human structure AI's work?"
                     |
-                    +-- COC (Codegen)
-                    +-- CO for Compliance
-                    +-- CO for Finance
-                    +-- CO for Operations
+                    +-- COC (Codegen) — mature, in production
+                    +-- COR (Research) — in production
+                    +-- COE (Education) — in analysis
+                    +-- COG (Governance) — in production
+                    +-- COF (Finance) — in production
+                    +-- COComp (Compliance) — sketch
                     +-- ...
 ```
 
@@ -473,7 +491,13 @@ Anthropic. (2026). "Claude Code: Documentation and Architecture." Available at h
 
 Bainbridge, L. (1983). Ironies of Automation. _Automatica_, 19(6), 775-779.
 
+Fama, E. F., & Jensen, M. C. (1983). Separation of Ownership and Control. _Journal of Law and Economics_, 26(2), 301-325.
+
 Haidt, J. (2001). The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment. _Psychological Review_, 108(4), 814-834.
+
+Hart, O. (1995). _Firms, Contracts, and Financial Structure_. Oxford University Press.
+
+Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." Submitted to _American Economic Review_. Theoretical foundation; CO addresses the specification quality problem (the q parameter).
 
 Hong, J. (2026a). "CARE: Collaborative Autonomous Reflective Enterprise -- A Core Thesis." White Paper Series, Version 2.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/CARE-Core-Thesis.pdf.
 
@@ -481,7 +505,11 @@ Hong, J. (2026b). "Enterprise Agent Trust Protocol (EATP) -- A Core Thesis." Whi
 
 Hong, J. (2026d). "Cognitive Orchestration for Codegen (COC) -- A Core Thesis." White Paper Series, Version 1.1. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/COC-Core-Thesis.pdf.
 
-Hong, J. (2026). "CO/COC vs Claude Code CLI: Deep Conformance Analysis." Terrene Foundation Internal Analysis, March 2026.
+Hong, J. (2026e). "The Constrained Organization: An Organizational Model for Enterprise AI Governance." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/Constrained-Organization-Thesis.pdf.
+
+Hong, J. (2026f). "PACT: Principled Architecture for Constrained Trust -- A Core Thesis." White Paper Series, Version 1.0. Terrene Foundation. https://github.com/terrene-foundation/publications/blob/main/PACT-Core-Thesis.pdf.
+
+Hong, J. (2026, March). "CO/COC vs Claude Code CLI: Deep Conformance Analysis." Terrene Foundation Internal Analysis.
 
 Karpathy, A. (2025). "Vibe Coding." Personal blog post, February 2025.
 
@@ -526,4 +554,14 @@ The tools used were Claude Code (Anthropic) with specialized subagents for resea
 
 ---
 
-_See also: Hong, J. (2026). "CARE: A Core Thesis" for the governance philosophy. "EATP: A Core Thesis" for the trust verification protocol. "COC: A Core Thesis" for the first domain application. "The Constrained Organization" for institutional design._
+## Version History
+
+| Version | Date       | Changes                                                                                                                                                                                                                               |
+| ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | March 2026 | Initial thesis: seven first principles, five-layer architecture, three failure modes, conformance criteria, process model, domain application template. COC as reference implementation. Conformance analysis against Claude Code CLI |
+| 1.1     | March 2026 | Added Principle 8 (Authentic Voice and Responsible Co-Authorship). Six domain applications documented (COC, COR, COE, COG, COF, COComp). Principle count updated throughout. CORP renamed to COR                                      |
+| 1.2     | August 2026 | Publication reconciliation (terrene#73): restored the no-independent-validation and no-peer-review disclosures, which had been dropped from the custodial copy while the published copy retained them                                    |
+
+---
+
+_This paper is Hong (2026c), derived from the theoretical foundation in Hong, J. (2026). "Constraint Theater: Governance Without Wealth Effects." CO addresses the specification quality problem (the q parameter in the formal model). See also: Hong, J. (2026a). "CARE: A Core Thesis" for governance philosophy. Hong, J. (2026b). "EATP: A Core Thesis" for trust verification. Hong, J. (2026d). "COC: A Core Thesis" for the first domain application. Hong, J. (2026e). "The Constrained Organization" for institutional design. Hong, J. (2026f). "PACT: A Core Thesis" for organizational architecture._
