@@ -4,9 +4,20 @@ _Why Enterprise AI Governance Is an Organizational Design Problem, and What a Ne
 
 **Author**: Dr. Jack Hong, Singapore Management University
 
-**Version**: 1.1 | March 2026
+**Version**: 1.1.1 | August 2026
 
 **License**: CC BY 4.0
+
+---
+
+## v1.1.1 erratum
+
+Documentation-grade correction to v1.1 (March 2026). No hypothesis, experimental observation, or falsification condition changes; a reader of v1.1 loses no substantive claim.
+
+| Erratum | Defect in v1.1 | Resolution |
+| ------- | -------------- | ---------- |
+| **E1** (undated reference-implementation census) | §8.2, §8.4, and §8.5 reported the implementation's artefact counts --- agents, hook scripts, structured workflows, rule files --- as undated present-tense properties. The figures were measured on 2026-03-13 and never re-stated, so they were silently false within weeks of that measurement; by August 2026 the agent count, the rule-file count, and the workflow count each understated the implementation by roughly two-fold. The counts were internally consistent across the paper series, which is why consistency checking never caught the drift. | Every count is restated as a **dated census** with its measurement date and basis, and §8.5 opens with a note that the figures measure a live repository at a point in time. A stale figure is now visibly stale rather than silently wrong. Corrected values (2026-08-22): 46 agent specializations, 9 registered hook scripts over 6 shared library modules, 28 structured workflows, 44 rule files, 17 skill directories. |
+| **E2** (hook-script basis) | "10 hook scripts" counted every file under `scripts/hooks/`, which conflates hook entry points with the shared library modules they import and with a verification script that is not registered as a hook. The figure was therefore not the enforcement-surface count the surrounding argument relies on. | The count now states the registered hook entry points (9) separately from the shared library modules that support them (6), and names the basis of the count. |
 
 ---
 
@@ -393,7 +404,7 @@ The Trust Plane is the 77-clause constitution with 11 entrenched provisions. It 
 
 The foundation's knowledge base operations are run by AI agents. This is the Execution Plane:
 
-- **20 specialized AI agents** across 7 categories manage research, drafting, cross-referencing, quality assurance, governance checking, security review, strategy analysis, and publication preparation.
+- **46 specialized AI agents** (census of 2026-08-22) across six namespaces --- standards, research, policy, education, management, and cross-cutting --- manage research, drafting, cross-referencing, quality assurance, governance checking, security review, strategy analysis, and publication preparation.
 
 - **Specific agent roles**: Standards experts for CARE, EATP, CO, PACT, and COC. A constitutional expert who knows the 77 clauses. A security reviewer who scans for exposed secrets. An intermediate reviewer for quality. A deep analyst for failure analysis. A publication expert for academic submissions.
 
@@ -407,27 +418,27 @@ Agent actions are traceable to the organizational root of authority:
 
 - Constraint envelopes are implemented as architectural enforcement rules: naming conventions enforce terminology consistency, security rules prevent exposure of sensitive information, constitutional consistency rules ensure companion documents never contradict the authoritative constitutional text, publication standards enforce citation density and honest limitations.
 
-- **10 hook scripts (pre-execution, post-execution, and lifecycle)** including anti-amnesia mechanisms ensure critical rules survive context window compression. These operate outside the AI's context window---they cannot be overridden by conversational instruction.
+- **Nine registered hook scripts (pre-execution, post-execution, and lifecycle)**, over six shared library modules, including anti-amnesia mechanisms ensure critical rules survive context window compression. These operate outside the AI's context window---they cannot be overridden by conversational instruction.
 
 ### 8.4 Institutional Knowledge (CO Five-Layer)
 
 The five-layer architecture is not theoretical. It is operational:
 
-- **Layer 1 (Intent)**: 20 agents with domain-specific expertise spanning standards, architecture, strategy, review, management, and publication.
-- **Layer 2 (Context)**: Rules, skills, and reference documentation form a living institutional handbook that provides relevant context based on current task.
+- **Layer 1 (Intent)**: 46 agents with domain-specific expertise spanning standards, architecture, strategy, review, research, policy, education, management, and publication.
+- **Layer 2 (Context)**: 44 rule files and 17 skill directories of reference documentation form a living institutional handbook that provides relevant context based on current task.
 - **Layer 3 (Guardrails)**: Pre-execution validation hooks with defense-in-depth. Multiple layers catch what any single layer misses. Anti-amnesia hooks re-inject critical rules after context compression.
-- **Layer 4 (Instructions)**: 14 structured workflows with approval gates. Research flows through analysis before implementation. Publications flow through review before submission. Constitutional changes flow through consultation before adoption.
+- **Layer 4 (Instructions)**: 28 structured workflows with approval gates. Research flows through analysis before implementation. Publications flow through review before submission. Constitutional changes flow through consultation before adoption.
 - **Layer 5 (Learning)**: Observation logs record patterns across sessions. Instinct evolution identifies recurring behaviors. Knowledge compounds.
 
 ### 8.5 Concrete Numbers
 
-The foundation is a working system, not a slide deck:
+The foundation is a working system, not a slide deck. The artefact counts in this section are a **census of the repository taken on 2026-08-22** --- file-level counts of the `.claude/` artefact tree and `scripts/hooks/`, with agents counted as files carrying agent frontmatter and hook scripts counted as entry points registered in the session configuration. They measure a repository under continuous development, so they are a figure at a date rather than a fixed property of the model; a later reader should expect different numbers and can re-derive them from the repository at that time.
 
 - 77-clause constitution with 11 entrenched provisions
-- 20 specialized AI agents across 7 categories
-- 14 structured workflows with approval gates
-- 13 operational rules (global and scoped)
-- 10 hook scripts (pre-execution, post-execution, and lifecycle)
+- 46 specialized AI agents across six namespaces
+- 28 structured workflows with approval gates
+- 44 operational rules (global and path-scoped)
+- 9 registered hook scripts (pre-execution, post-execution, and lifecycle) over 6 shared library modules
 - 26 documented failure scenarios
 - Full conversation histories retained as audit trails
 
