@@ -6,12 +6,13 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 
 | Paper                        | Version | PDF                                        | Source                                         |
 | ---------------------------- | ------- | ------------------------------------------ | ---------------------------------------------- |
-| CARE: A Core Thesis          | v2.1    | [PDF](CARE-Core-Thesis.pdf)                | [Markdown](CARE-Core-Thesis.md)                |
-| EATP: A Core Thesis          | v2.2    | [PDF](EATP-Core-Thesis.pdf)                | [Markdown](EATP-Core-Thesis.md)                |
-| CO: A Core Thesis            | v1.1    | [PDF](CO-Core-Thesis.pdf)                  | [Markdown](CO-Core-Thesis.md)                  |
+| CARE: A Core Thesis          | v2.2.1  | [PDF](CARE-Core-Thesis.pdf)                | [Markdown](CARE-Core-Thesis.md)                |
+| EATP: A Core Thesis          | v2.3.1  | [PDF](EATP-Core-Thesis.pdf)                | [Markdown](EATP-Core-Thesis.md)                |
+| CO: A Core Thesis            | v1.2.1  | [PDF](CO-Core-Thesis.pdf)                  | [Markdown](CO-Core-Thesis.md)                  |
 | COC: A Core Thesis           | v1.1    | [PDF](COC-Core-Thesis.pdf)                 | [Markdown](COC-Core-Thesis.md)                 |
-| The Constrained Organization | v1.0    | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
+| The Constrained Organization | v1.1.1  | [PDF](Constrained-Organization-Thesis.pdf) | [Markdown](Constrained-Organization-Thesis.md) |
 | PACT: A Core Thesis          | v1.0    | [PDF](PACT-Core-Thesis.pdf)                | [Markdown](PACT-Core-Thesis.md)                |
+| The Expert Corpus            | v1.0    | [PDF](Expert-Corpus.pdf)                   | [Markdown](Expert-Corpus.md)                   |
 
 **CARE** — Collaborative Autonomous Reflective Enterprise. Governance philosophy for enterprise AI. Dual Plane Model, Mirror Thesis, Human-on-the-Loop, Constrained Organization.
 
@@ -24,6 +25,8 @@ Open publications from the [Terrene Foundation](https://terrene.foundation) — 
 **The Constrained Organization** — An organizational model for enterprise AI governance integrating CARE + EATP + CO. Case study of the Terrene Foundation.
 
 **PACT** — Principled Architecture for Constrained Trust. Organizational grammar for accountability at institutional scale. D/T/R addressing, operating envelope delegation, knowledge clearance, verification gradient. Ratified Terrene Foundation standard (v1.0, promoted 2026-06-21; promotion record in Section 16).
+
+**The Expert Corpus** — *From Decision to Control*. The Foundation's own body of expert principles on machine-enforceable governance: twenty-seven statements of what must be true of the layer beneath a board's decision, each carrying the test that a specification can fail. It sits one level above the ratified standards, which are written from it rather than described by it. In force as a Foundation anchor since 27 August 2026.
 
 ## The Four Ratified Standards
 
@@ -64,8 +67,9 @@ Because every thesis shares the same author and year, a per-thesis alphabetical 
 | `Hong, 2026d` | COC: A Core Thesis                                    | [COC-Core-Thesis.md](COC-Core-Thesis.md)                                 |
 | `Hong, 2026e` | The Constrained Organization                          | [Constrained-Organization-Thesis.md](Constrained-Organization-Thesis.md) |
 | `Hong, 2026f` | PACT: A Core Thesis                                   | [PACT-Core-Thesis.md](PACT-Core-Thesis.md)                               |
+| `Hong, 2026g` | The Expert Corpus: From Decision to Control           | [Expert-Corpus.md](Expert-Corpus.md)                                     |
 
-New theses take the next free letter (`g`, `h`, …), allocated at publication. The normative authority for this table — including the order rule, stability guarantee, and allocation policy — is [`CITATION-AUTHORITY.md`](https://github.com/terrene-foundation/foundation/blob/main/docs/02-standards/publications/CITATION-AUTHORITY.md) in the foundation repository.
+New theses take the next free letter (`h`, `i`, …), allocated at publication. The normative authority for this table — including the order rule, stability guarantee, and allocation policy — is [`CITATION-AUTHORITY.md`](https://github.com/terrene-foundation/foundation/blob/main/docs/02-standards/publications/CITATION-AUTHORITY.md) in the foundation repository.
 
 ## Related Repositories
 
